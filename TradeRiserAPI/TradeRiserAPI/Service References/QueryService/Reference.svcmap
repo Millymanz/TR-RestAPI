@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="11971163-0d59-474d-b6bc-3724c9012906" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://localhost:8012/QueryService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="66af32f1-4ce7-446c-8662-60eed37c00cc" SourceId="1" SourceUrl="net.tcp://localhost:8012/QueryService/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="932e3a37-1c37-4dbd-951d-09df0ed95781" SourceId="1" SourceUrl="net.tcp://localhost:8012/QueryService/mex" />
+    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="aeb374fa-e0e9-4ce0-93bd-b4758444f908" SourceId="1" SourceUrl="net.tcp://localhost:8012/QueryService/mex" />
+    <MetadataFile FileName="QueryService1.xsd" MetadataType="Schema" ID="08bbd488-f490-4385-85d5-a1b94958f6fc" SourceId="1" SourceUrl="net.tcp://localhost:8012/QueryService/mex" />
+    <MetadataFile FileName="QueryLibrary1.xsd" MetadataType="Schema" ID="7edff3de-fca8-4790-8939-84570c27ac05" SourceId="1" SourceUrl="net.tcp://localhost:8012/QueryService/mex" />
+    <MetadataFile FileName="Arrays1.xsd" MetadataType="Schema" ID="d5741747-1ac4-4976-8f55-802aaf2a00b4" SourceId="1" SourceUrl="net.tcp://localhost:8012/QueryService/mex" />
+    <MetadataFile FileName="DataModel1.xsd" MetadataType="Schema" ID="478e4278-707b-431a-97ee-333e5c69cb22" SourceId="1" SourceUrl="net.tcp://localhost:8012/QueryService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

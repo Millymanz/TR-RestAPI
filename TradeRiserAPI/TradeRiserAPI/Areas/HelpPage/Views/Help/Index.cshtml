@@ -1,0 +1,41 @@
+@using System.Web.Http
+@using System.Web.Http.Controllers
+@using System.Web.Http.Description
+@using System.Collections.ObjectModel
+@using TradeRiserAPI.Areas.HelpPage.Models
+@model Collection<ApiDescription>
+
+@{
+    ViewBag.Title = "TradeRiser APIs";
+
+    // Group APIs by controller
+    ILookup<HttpControllerDescriptor, ApiDescription> apiGroups = Model.ToLookup(api => api.ActionDescriptor.ControllerDescriptor);
+}
+
+<link type="text/css" href="~/Areas/HelpPage/HelpPage.css" rel="stylesheet" />
+<header class="help-page">
+    <div class="content-wrapper">
+        <div class="float-left">
+            <h1>@ViewBag.Title</h1>
+        </div>
+    </div>
+</header>
+<div id="body" class="help-page">
+    <section class="featured">
+        <div class="content-wrapper">
+            <p>
+                The REST APIs provide programmatic access to read and write TradeRiser data. </p>
+                
+                <p> The REST API identifies TradeRiser application features responses are available in JSON and XML. </p>
+
+                <p> To monitor or process continuous query results in real-time, consider using the Streaming API instead.
+            </p>
+        </div>
+    </section>
+    <section class="content-wrapper main-content clear-fix">
+        @foreach (var group in apiGroups)
+        {
+            @Html.DisplayFor(m => group, "ApiGroup")
+        }
+    </section>
+</div>
