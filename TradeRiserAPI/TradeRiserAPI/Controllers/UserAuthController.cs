@@ -31,7 +31,7 @@ namespace TradeRiserAPI.Controllers
         /// <param name="model">An object that contains the username, password and rememberme flag.</param>
         [Route("Authenticate")]
         [HttpPost]
-        public bool Authenticate(LoginModel model)
+        public UserInfo Authenticate(LoginModel model)
         {
             var dataModel = new DataModel();
 

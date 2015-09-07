@@ -93,6 +93,33 @@ namespace TradeRiserAPI.Models
         public string Query { get; set; }
     }
 
+    public class UserInfo
+    {
+        [Required]
+        [Display(Name = "UserId")]
+        public int UserId { get; set; }
+
+        [Required]
+        [Display(Name = "Username")]
+        public string Username { get; set; }
+
+        [Required]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "FirstName")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "LastName")]
+        public string LastName { get; set; }
+
+        [Required]
+        [Display(Name = "LoginSuccessful")]
+        public bool LoginSuccessful { get; set; }
+    }
+
     public class SymbolData
     {
         [Required]

@@ -239,8 +239,10 @@ namespace TradeRiserAPI.Models
             }
         }
 
-        public bool Login(String username, String password, bool rememberMe)
+        public UserInfo Login(String username, String password, bool rememberMe)
         {
+            var userInfo = new UserInfo();
+
             try
             {
                 using (var conn = new SqlConnection(
@@ -256,10 +258,14 @@ namespace TradeRiserAPI.Models
 
                     while (sqlReader.Read())
                     {
+
                         String userId = sqlReader["UserId"].ToString();
                         String usernameT = sqlReader["Username"].ToString();
                         String passwordResult = sqlReader["Password"].ToString();
                         String passwordSalt = sqlReader["PasswordSalt"].ToString();
+                        String firstName = sqlReader["FirstName"].ToString();
+                        String lastName = sqlReader["LastName"].ToString();
+                        String email = sqlReader["Email"].ToString();
 
 
                         var salt = System.Text.Encoding.UTF8.GetBytes(passwordSalt);
@@ -270,14 +276,22 @@ namespace TradeRiserAPI.Models
 
                         string hexString = DataModel.ToHex(saltedHash, false);
 
+                        userInfo.UserId = Convert.ToInt32(userId);
+                        userInfo.Username = usernameT;
+                        userInfo.FirstName = firstName;
+                        userInfo.LastName = lastName;
+                        userInfo.Email = email;
+
                         if (passwordResult == hexString)
                         {
-                          
+                            userInfo.LoginSuccessful = true;
                             //FormsAuthentication.SetAuthCookie(username, rememberMe);
-                            return true;
+                            //return true;
                         }
                         else
                         {
+                            userInfo.LoginSuccessful = false;
+
                             throw new MembershipCreateUserException();
                         }
                     }
@@ -287,7 +301,7 @@ namespace TradeRiserAPI.Models
             {
                 ex.ToString();
             }
-            return false;
+            return userInfo;
         }     
     }
 }

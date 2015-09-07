@@ -6,6 +6,7 @@ using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 using TradeRiserAPI.Models;
+using System.Web.Cors;
 
 namespace TradeRiserAPI
 {
@@ -26,6 +27,13 @@ namespace TradeRiserAPI
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+
+            // New code
+            var cor = System.Configuration.ConfigurationManager.AppSettings["CrossDomainSetting"].ToString();
+
+            var corsAttr = new System.Web.Http.Cors.EnableCorsAttribute(cor, "*", "*");
+            config.EnableCors(corsAttr);
 
 
             // WebApi Configuration to hook up formatters and message handlers
