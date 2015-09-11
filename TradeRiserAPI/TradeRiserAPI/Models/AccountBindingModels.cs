@@ -95,9 +95,9 @@ namespace TradeRiserAPI.Models
 
     public class UserInfo
     {
-        [Required]
-        [Display(Name = "UserId")]
-        public int UserId { get; set; }
+        //[Required]
+        //[Display(Name = "UserId")]
+        //public int UserId { get; set; }
 
         [Required]
         [Display(Name = "Username")]

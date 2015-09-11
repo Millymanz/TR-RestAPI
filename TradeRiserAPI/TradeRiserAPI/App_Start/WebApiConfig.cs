@@ -6,7 +6,9 @@ using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 using TradeRiserAPI.Models;
+
 using System.Web.Cors;
+using System.Web.Routing;
 
 namespace TradeRiserAPI
 {
@@ -17,16 +19,27 @@ namespace TradeRiserAPI
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
             config.SuppressDefaultHostAuthentication();
+            //config.Filters.Add(new ValidationActionFilter());
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+
+            //config.MessageHandlers.Add(new MessageHandler1());
 
             // Web API routes
             config.MapHttpAttributeRoutes();
 
-            config.Routes.MapHttpRoute(
+            //config.Routes.MapHttpRoute(
+            //    name: "DefaultApi",
+            //    routeTemplate: "api/{controller}/{id}",
+            //    defaults: new { id = RouteParameter.Optional }
+            //);
+
+
+            RouteTable.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
-            );
+            ).RouteHandler = new SessionRouteHandler();  
+
 
 
             // New code
@@ -40,6 +53,21 @@ namespace TradeRiserAPI
             // optional
             //RegisterApis(GlobalConfiguration.Configuration);
 
+        }
+
+        public class SessionRouteHandler : System.Web.Routing.IRouteHandler
+        {
+            System.Web.IHttpHandler System.Web.Routing.IRouteHandler.GetHttpHandler(System.Web.Routing.RequestContext requestContext)
+            {
+                return new SessionControllerHandler(requestContext.RouteData);
+            }
+        }
+
+        public class SessionControllerHandler : System.Web.Http.WebHost.HttpControllerHandler, System.Web.SessionState.IRequiresSessionState
+        {
+            public SessionControllerHandler(System.Web.Routing.RouteData routeData)
+                : base(routeData)
+            { }
         }
 
         //public static void RegisterApis(HttpConfiguration config)

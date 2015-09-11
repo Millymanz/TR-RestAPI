@@ -481,11 +481,21 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
-        <member name="M:TradeRiserAPI.Controllers.UserAuthController.Register(TradeRiserAPI.Models.RegisterModel)">
+        <member name="M:TradeRiserAPI.Controllers.UserAuthController.RegisterToken(TradeRiserAPI.Models.RegisterModel)">
             <summary>
-            Register a new user to use the application.
+            Register newly obtained token.
+            After obtain a new authorization token, call this method to register the token
+            against the username
             </summary>
             <param name="model">Registeration object contains mulitple fields for registeration</param>
+        </member>
+        <member name="M:TradeRiserAPI.Controllers.UserAuthController.SessionTokenActive">
+            <summary>
+            Session Token Active.
+            Call this method to check if Token is still active and valid
+            If valid it returns true, if not valid or if session has ended it returns
+            401 Message - Unauthorised
+            </summary>
         </member>
         <member name="M:TradeRiserAPI.Controllers.UserAuthController.Authenticate(TradeRiserAPI.Models.LoginModel)">
             <summary>

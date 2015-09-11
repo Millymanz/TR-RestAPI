@@ -312,7 +312,9 @@ E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\PusherServer.dll
 E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\RestSharp.dll
 E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\System.Json.dll
 E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\System.Net.Http.Formatting.dll
+E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\System.Web.Cors.dll
 E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\System.Web.Helpers.dll
+E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\System.Web.Http.Cors.dll
 E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\System.Web.Http.dll
 E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\System.Web.Http.Owin.dll
 E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\System.Web.Http.WebHost.dll
@@ -347,6 +349,7 @@ E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\System.Json.xml
 E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\System.Net.Http.Formatting.xml
 E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\System.Web.Helpers.xml
 E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\System.Web.Http.xml
+E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\System.Web.Http.Cors.xml
 E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\System.Web.Http.Owin.xml
 E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\System.Web.Http.WebHost.xml
 E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\System.Web.Mvc.xml
@@ -357,7 +360,4 @@ E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\System.Web.WebPage
 E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\System.Web.Optimization.xml
 E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\obj\Debug\TradeRiserAPI.dll
 E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\obj\Debug\TradeRiserAPI.pdb
-E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\System.Web.Cors.dll
-E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\System.Web.Http.Cors.dll
-E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\System.Web.Http.Cors.xml
 E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\obj\Debug\TradeRiserAPI.csprojResolveAssemblyReference.cache

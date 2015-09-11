@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace TradeRiserAPI.Controllers
 {
-    [Authorize]
+    //[Authorize]
+    [ValidationActionFilter]
     [RoutePrefix("api/Query")]
     public class QueryController : ApiController
     {

@@ -14,9 +14,27 @@ using System.Security.Cryptography;
 using System.Text;
 using System.IO;
 
+using TradeRiserAPI.Controllers;
 
 namespace TradeRiserAPI.Providers
 {
+    public class QueryStringOAuthBearerProvider : OAuthBearerAuthenticationProvider
+    {
+        public override Task RequestToken(OAuthRequestTokenContext context)
+        {
+            var value = context.Request.Query.Get("access_token");
+
+            if (!string.IsNullOrEmpty(value))
+            {
+                context.Token = value;
+            }
+
+            return Task.FromResult<object>(null);
+        }
+    }
+
+
+
     public class ApplicationOAuthProvider : OAuthAuthorizationServerProvider
     {
         private readonly string _publicClientId;
@@ -37,14 +55,14 @@ namespace TradeRiserAPI.Providers
 
             var apiSecret = System.Configuration.ConfigurationManager.AppSettings["APISecret"].ToString();
 
-            var encryptedText = Crypto.EncryptStringAES("traderiserapp@traderiser.com|Hydrus!$men1", apiSecret);
+           // var encryptedText = Crypto.EncryptStringAES("traderiserapp@traderiser.com|Hydrus!$men1", apiSecret);
 
-            string realCredentials = Crypto.DecryptStringAES(context.UserName, apiSecret);
-            var credentialsArray = realCredentials.Split('|');
-            string userName = credentialsArray[0];
-            string password = credentialsArray[1];
+            //string realCredentials = Crypto.DecryptStringAES(context.UserName, apiSecret);
+            //var credentialsArray = realCredentials.Split('|');
+            string userName = context.UserName;
+            string password = context.Password;
  
-
+    
             ApplicationUser user = await userManager.FindAsync(userName, password);
 
             if (user == null)
@@ -62,16 +80,104 @@ namespace TradeRiserAPI.Providers
             AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
             context.Validated(ticket);
             context.Request.Context.Authentication.SignIn(cookiesIdentity);
+
+
+            //ApplicationUser userTT = new ApplicationUser
+            //{
+            //    UserName = "rocky.asante@gmail.com",
+            //    Email = "rocky.asante@gmail.com",
+            //    EmailConfirmed = true,              
+            //    PasswordHash = "AIpSqYyVbdnaCKYfLq0gcwLTe4Qgg8Wi8kMhSx0iNelYLtYFwtIyCdWWYG8DOMLSpolk"
+            //};
+            //var oAuthIdentitfffy = userManager.Create(userTT, "Rockyasante123£");
+
+
+
         }
 
         public override Task TokenEndpoint(OAuthTokenEndpointContext context)
         {
+            DateTime startDateTime = new DateTime();
+            DateTime endDateTime = new DateTime();
+
             foreach (KeyValuePair<string, string> property in context.Properties.Dictionary)
             {
                 context.AdditionalResponseParameters.Add(property.Key, property.Value);
+
+                if (property.Key == ".issued")
+                {
+                    DateTime.TryParse(property.Value, out startDateTime);
+                }
+
+                if (property.Key == ".expires")
+                {
+                    DateTime.TryParse(property.Value, out endDateTime);
+                }
+            }
+
+            if (String.IsNullOrEmpty(context.Identity.Name) == false)
+            {
+                var dataModel = new DataModel();
+
+                dataModel.LoginToken(context.Identity.Name, "NoneAvailable", startDateTime, endDateTime);
             }
 
             return Task.FromResult<object>(null);
+        }
+
+        public override Task ValidateAuthorizeRequest(OAuthValidateAuthorizeRequestContext context)
+        {
+            return base.ValidateAuthorizeRequest(context);
+        }
+
+        public override Task ValidateTokenRequest(OAuthValidateTokenRequestContext context)
+        {
+            return base.ValidateTokenRequest(context);
+        }
+
+        public override Task GrantAuthorizationCode(OAuthGrantAuthorizationCodeContext context)
+        {
+            return base.GrantAuthorizationCode(context);
+        }
+
+        public override Task GrantCustomExtension(OAuthGrantCustomExtensionContext context)
+        {
+            return base.GrantCustomExtension(context);
+        }
+
+        public override Task GrantRefreshToken(OAuthGrantRefreshTokenContext context)
+        {
+            return base.GrantRefreshToken(context);
+        }
+
+        public override Task MatchEndpoint(OAuthMatchEndpointContext context)
+        {
+            //var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
+
+            //context.OwinContext.Request.User.Identity.
+
+            ////userManager
+
+           
+            //ApplicationUser user = userManager.FindAsync(userName, password);
+
+            //if (user == null)
+            //{
+            //    context.SetError("invalid_grant", "The user name or password is incorrect.");
+            //    return;
+            //}
+
+            //ClaimsIdentity oAuthIdentity = user.GenerateUserIdentity(userManager,
+            //   OAuthDefaults.AuthenticationType);
+            //ClaimsIdentity cookiesIdentity = await user.GenerateUserIdentityAsync(userManager,
+            //    CookieAuthenticationDefaults.AuthenticationType);
+
+
+
+            var res = base.MatchEndpoint(context);
+           
+
+            return res;
         }
 
         public override Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
