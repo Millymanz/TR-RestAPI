@@ -1,0 +1,25 @@
+﻿<div class="jumbotron">
+    <h2>Documentation</h2>
+    <ul>
+        <li><a href ="#OAuth">OAuth - Access Process</a></li>
+        <li><a href ="#Data">Data Structure</a></li>
+    </ul>
+</div>
+
+<div>
+    <h3 id="OAuth">OAuth - Access Process</h3>
+    <p>In order to make authorized calls to TradeRiser’s APIs, your application must first obtain an OAuth access token 
+        on behalf of a the TradeRiser user. We also provide an Application-only authenticated requests when user context is not required, this normally for a general user. 
+        The way you will obtain such tokens will depend on your use case.</p>
+    <p>
+The current user context OAuth flow allows your application to obtain an access token and then registering the token against the user:
+     <ul>
+        <li>Call to Token to request token on the user's behalf</li>
+        <li>Recipient application then registers the token against the username</li>
+        <li>User is then officially authenticated and logged in</li>
+    </ul>
+The process is illustrated in the following flowchart:
+    </p>
+    <p><img src ="/Images/oauth.png" /></p>
+
+</div>

@@ -10,7 +10,14 @@ namespace TradeRiserAPI.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
+            ViewBag.Title = "TradeRiser Developers";
+
+            return View();
+        }
+        
+        public ActionResult Documentation()
+        {
+            ViewBag.Title = "Documentation";
 
             return View();
         }

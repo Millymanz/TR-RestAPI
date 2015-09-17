@@ -53,6 +53,7 @@
     padding: 0px;
     font-family: inherit;
     font-size: 100%;
+    font-weight:bold;
 }
 
 .help-page-table tbody tr:hover td {
@@ -110,11 +111,13 @@
 .help-page .h1 {
     font-size: 36px;
     line-height: normal;
+    font-weight:bold;
 }
 
 .help-page h2,
 .help-page .h2 {
     font-size: 24px;
+    font-weight:bolder;
 }
 
 .help-page h3,
@@ -126,6 +129,7 @@
     font-size: 14px;
     line-height: 143%;
     color: #333;
+    font-weight:bold;
 }
 
 .help-page a {
