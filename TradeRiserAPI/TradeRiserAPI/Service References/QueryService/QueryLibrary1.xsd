@@ -61,8 +61,9 @@
   <xs:element name="ArrayOfChartDataPairing" nillable="true" type="tns:ArrayOfChartDataPairing" />
   <xs:complexType name="ChartDataPairing">
     <xs:sequence>
+      <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GenericStr" nillable="true" type="q12:ArrayOfArrayOfstring" />
       <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
-      <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Value" nillable="true" type="q12:ArrayOfArrayOfdouble" />
+      <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Value" nillable="true" type="q13:ArrayOfArrayOfdouble" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ChartDataPairing" nillable="true" type="tns:ChartDataPairing" />
@@ -93,9 +94,9 @@
   <xs:complexType name="PerformanceStats">
     <xs:sequence>
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Headers" nillable="true" type="q13:ArrayOfstring" />
+      <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Headers" nillable="true" type="q14:ArrayOfstring" />
       <xs:element minOccurs="0" name="PerformanceStatsType" nillable="true" type="xs:string" />
-      <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StatsLog" nillable="true" type="q14:ArrayOfArrayOfstring" />
+      <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StatsLog" nillable="true" type="q15:ArrayOfArrayOfstring" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="PerformanceStats" nillable="true" type="tns:PerformanceStats" />

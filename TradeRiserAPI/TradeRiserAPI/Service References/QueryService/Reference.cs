@@ -520,6 +520,9 @@ namespace TradeRiserAPI.QueryService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string[][] GenericStrField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string KeyField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -532,6 +535,19 @@ namespace TradeRiserAPI.QueryService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[][] GenericStr {
+            get {
+                return this.GenericStrField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GenericStrField, value) != true)) {
+                    this.GenericStrField = value;
+                    this.RaisePropertyChanged("GenericStr");
+                }
             }
         }
         
