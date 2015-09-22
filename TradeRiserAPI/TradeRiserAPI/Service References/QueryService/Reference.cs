@@ -526,7 +526,16 @@ namespace TradeRiserAPI.QueryService {
         private string KeyField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TitleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double[][] ValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string XaxisField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string YaxisField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -565,6 +574,19 @@ namespace TradeRiserAPI.QueryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Title {
+            get {
+                return this.TitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public double[][] Value {
             get {
                 return this.ValueField;
@@ -573,6 +595,32 @@ namespace TradeRiserAPI.QueryService {
                 if ((object.ReferenceEquals(this.ValueField, value) != true)) {
                     this.ValueField = value;
                     this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Xaxis {
+            get {
+                return this.XaxisField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.XaxisField, value) != true)) {
+                    this.XaxisField = value;
+                    this.RaisePropertyChanged("Xaxis");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Yaxis {
+            get {
+                return this.YaxisField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.YaxisField, value) != true)) {
+                    this.YaxisField = value;
+                    this.RaisePropertyChanged("Yaxis");
                 }
             }
         }

@@ -63,7 +63,10 @@
     <xs:sequence>
       <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GenericStr" nillable="true" type="q12:ArrayOfArrayOfstring" />
       <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
       <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Value" nillable="true" type="q13:ArrayOfArrayOfdouble" />
+      <xs:element minOccurs="0" name="Xaxis" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yaxis" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ChartDataPairing" nillable="true" type="tns:ChartDataPairing" />
