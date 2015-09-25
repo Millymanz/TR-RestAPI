@@ -190,9 +190,11 @@ namespace TradeRiserAPI.Models
             System.ServiceModel.InstanceContext context =
                 new System.ServiceModel.InstanceContext(cb);
 
+            var pureQueryId = queryId.Split(new string[] { "cmc" }, StringSplitOptions.None).FirstOrDefault();
+
             using (QueryService.QueryServiceClient queryServiceProxy = new QueryService.QueryServiceClient(context))
             {
-                return queryServiceProxy.GetDataResult(queryId, selectingSymbol);
+                return queryServiceProxy.GetDataResult(pureQueryId, selectingSymbol);
             }
         }
 

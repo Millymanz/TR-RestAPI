@@ -118,7 +118,7 @@ namespace TradeRiserAPI.Models
 
                             ResultSummary resultSum = new ResultSummary();
                             resultSum.KeyResultField = new List<List<String>>();
-
+                            string resultSym = "";
                             for (int j = 0; j < headerResult.Count(); j++)
                             {
                                 switch (headerResult[j])
@@ -128,7 +128,7 @@ namespace TradeRiserAPI.Models
                                             //if Forex then ConvertSymbolIntoFriendlyForm()
 
                                             //resultSum.SymbolID = "FakeSymbol";
-
+                                            resultSym = item[j];
                                             resultSum.SymbolID = TradeUtility.ConvertSymbolIntoFriendlyForm(item[j]);
                                         }
                                         break;
@@ -180,8 +180,13 @@ namespace TradeRiserAPI.Models
                                     resultSum.ImageCollection.Add(path);
                                 }
                             }
-                            
-                            resultSum.QueryID = currentResult.QueryID + "cmc" + i;
+                            //resultSum.QueryID = currentResult.QueryID;
+
+                            //cmc i is used to track the items in the query results front end
+
+                            resultSum.QueryID = resultSym + "*" + currentResult.QueryID + "cmc" + i;
+
+                            //resultSum.QueryID = currentResult.QueryID + "cmc" + i;
 
                             resultSummaries.Add(resultSum);
                         }

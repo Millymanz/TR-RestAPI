@@ -131,6 +131,17 @@ namespace TradeRiserAPI.Models
         public string TimeFrame { get; set; }
     }
 
+    public class DataResultRetriever
+    {
+        [Required]
+        [Display(Name = "QueryId")]
+        public string QueryId { get; set; }
+
+        [Required]
+        [Display(Name = "SelectingSymbol")]
+        public string SelectingSymbol { get; set; }
+    }
+
     public class SubscripitionManagment
     {
         [Required]

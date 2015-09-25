@@ -112,6 +112,20 @@ namespace TradeRiserAPI.Controllers
         //    return queryHandler.GetSymbolData(symbolData);
         //}
 
+        /// <summary>
+        /// Call this to fetch the other results
+        /// </summary>
+        /// <param name="symbolData">Object containg the symbol and timeframe.</param>
+        [Route("GetDataResult")]
+        [HttpPost]
+        public PresentationRenderer GetDataResult(DataResultRetriever dataResultRetriever)
+        {
+            QueryHandler queryHandler = new QueryHandler();
+
+            var ans = queryHandler.GetDataResult(dataResultRetriever.QueryId, dataResultRetriever.SelectingSymbol);
+
+            return new PresentationRenderer(ans);
+        }
 
         /// <summary>
         /// Used for retrieving symbol data for features like the ChartPad

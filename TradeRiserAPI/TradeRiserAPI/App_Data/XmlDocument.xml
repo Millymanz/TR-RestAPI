@@ -515,6 +515,12 @@
             </summary>
             <param name="queryItem">Simple object consisting of query string.</param>
         </member>
+        <member name="M:TradeRiserAPI.Controllers.QueryController.GetDataResult(TradeRiserAPI.Models.DataResultRetriever)">
+            <summary>
+            Call this to fetch the other results
+            </summary>
+            <param name="symbolData">Object containg the symbol and timeframe.</param>
+        </member>
         <member name="M:TradeRiserAPI.Controllers.QueryController.GetSymbolData(TradeRiserAPI.Models.SymbolData)">
             <summary>
             Used for retrieving symbol data for features like the ChartPad
