@@ -489,6 +489,12 @@
             </summary>
             <param name="model">Registeration object contains mulitple fields for registeration</param>
         </member>
+        <member name="M:TradeRiserAPI.Controllers.UserAuthController.RequestToken(TradeRiserAPI.Models.ObtainToken)">
+            <summary>
+            Authenticate the user to use consuming application.
+            </summary>
+            <param name="model">An object that contains the username, password and rememberme flag.</param>
+        </member>
         <member name="M:TradeRiserAPI.Controllers.UserAuthController.SessionTokenActive">
             <summary>
             Session Token Active.

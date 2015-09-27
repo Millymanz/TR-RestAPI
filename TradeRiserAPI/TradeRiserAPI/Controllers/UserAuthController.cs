@@ -30,34 +30,22 @@ namespace TradeRiserAPI.Controllers
             return dataModel.RegisterToken(model.UserName, model.AccessToken);
         }
 
-        //[Route("GetUserInfoToken")]
-        //[HttpPost]
-        //public UserInfo GetUserInfoToken()
-        //{
-        //    var contexrgrgt = this.Request.Properties["MS_HttpContext"] as System.Web.Http.Controllers.HttpActionContext;
+        /// <summary>
+        /// Authenticate the user to use consuming application.
+        /// </summary>
+        /// <param name="model">An object that contains the username, password and rememberme flag.</param>
+        [Route("RequestToken")]
+        [HttpPost]
+        public string RequestToken(ObtainToken model)
+        {
+            var restC = new RestClient();
+            var resdpon =  restC.GetAccessToken(model.UserName, model.Password, HttpContext.Current.Request);
 
-        //    var contexrkkgrgt = this.Request.Properties["MS_HttpContext"] as System.Web.HttpContext;
+            var dataModel = new DataModel();
+            return resdpon;
+            //return dataModel.Login(model.UserName, model.Password, true);
+        }
 
-
-        //    var context = this.Request.Properties["MS_HttpContext"] as System.Web.HttpContextWrapper;
-        //    var auth = context.Request.Headers["Authorization"];
-
-        //    int prevLength = 0;
-        //    int selIndex = 0;
-
-        //    for (int i = 0; i < context.Request.Headers.Count; i++)
-        //    {
-        //        int currentLength = context.Request.Headers[i].Length;
-        //        if (currentLength > prevLength)
-        //        {
-        //            selIndex = i;
-        //        }
-        //    }
-        //    var authToken = this.User.Identity;
-
-        //    var dataModel = new DataModel();
-        //    return dataModel.GetUserInfo_Token("");
-        //}
 
         [Route("GetUserInfoUsername")]
         [HttpPost]

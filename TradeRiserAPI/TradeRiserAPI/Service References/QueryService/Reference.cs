@@ -305,7 +305,13 @@ namespace TradeRiserAPI.QueryService {
         private string MainWidgetField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MainWidgetAltNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string[] SubWidgetsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string[] SubWidgetsAltNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string[] SymbolField;
@@ -334,6 +340,19 @@ namespace TradeRiserAPI.QueryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MainWidgetAltName {
+            get {
+                return this.MainWidgetAltNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MainWidgetAltNameField, value) != true)) {
+                    this.MainWidgetAltNameField = value;
+                    this.RaisePropertyChanged("MainWidgetAltName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string[] SubWidgets {
             get {
                 return this.SubWidgetsField;
@@ -342,6 +361,19 @@ namespace TradeRiserAPI.QueryService {
                 if ((object.ReferenceEquals(this.SubWidgetsField, value) != true)) {
                     this.SubWidgetsField = value;
                     this.RaisePropertyChanged("SubWidgets");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[] SubWidgetsAltName {
+            get {
+                return this.SubWidgetsAltNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SubWidgetsAltNameField, value) != true)) {
+                    this.SubWidgetsAltNameField = value;
+                    this.RaisePropertyChanged("SubWidgetsAltName");
                 }
             }
         }

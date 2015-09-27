@@ -21,17 +21,19 @@
   <xs:complexType name="PresentationPackage">
     <xs:sequence>
       <xs:element minOccurs="0" name="MainWidget" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MainWidgetAltName" nillable="true" type="xs:string" />
       <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SubWidgets" nillable="true" type="q2:ArrayOfstring" />
-      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Symbol" nillable="true" type="q3:ArrayOfstring" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SubWidgetsAltName" nillable="true" type="q3:ArrayOfstring" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Symbol" nillable="true" type="q4:ArrayOfstring" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="PresentationPackage" nillable="true" type="tns:PresentationPackage" />
   <xs:complexType name="ComputedResultTable">
     <xs:sequence>
-      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ComputedResults" nillable="true" type="q4:ArrayOfArrayOfstring" />
-      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="HeaderDataType" nillable="true" type="q5:ArrayOfstring" />
-      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Headers" nillable="true" type="q6:ArrayOfstring" />
-      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="KeyFieldIndex" nillable="true" type="q7:ArrayOfArrayOfint" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ComputedResults" nillable="true" type="q5:ArrayOfArrayOfstring" />
+      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="HeaderDataType" nillable="true" type="q6:ArrayOfstring" />
+      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Headers" nillable="true" type="q7:ArrayOfstring" />
+      <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="KeyFieldIndex" nillable="true" type="q8:ArrayOfArrayOfint" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ComputedResultTable" nillable="true" type="tns:ComputedResultTable" />
@@ -44,12 +46,12 @@
   <xs:complexType name="RawDataResultTable">
     <xs:sequence>
       <xs:element minOccurs="0" name="ChartReadyDataResults" nillable="true" type="tns:ArrayOfChartDataPairing" />
-      <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DataResults" nillable="true" type="q8:ArrayOfArrayOfArrayOfstring" />
-      <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="HeaderDataType" nillable="true" type="q9:ArrayOfArrayOfstring" />
-      <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Headers" nillable="true" type="q10:ArrayOfArrayOfstring" />
+      <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DataResults" nillable="true" type="q9:ArrayOfArrayOfArrayOfstring" />
+      <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="HeaderDataType" nillable="true" type="q10:ArrayOfArrayOfstring" />
+      <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Headers" nillable="true" type="q11:ArrayOfArrayOfstring" />
       <xs:element minOccurs="0" name="HighLightRegion" nillable="true" type="tns:ArrayOfHighlightRegion" />
       <xs:element minOccurs="0" name="PerformanceStatistics" nillable="true" type="tns:ArrayOfPerformanceStats" />
-      <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Summaries" nillable="true" type="q11:ArrayOfstring" />
+      <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Summaries" nillable="true" type="q12:ArrayOfstring" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="RawDataResultTable" nillable="true" type="tns:RawDataResultTable" />
@@ -61,10 +63,10 @@
   <xs:element name="ArrayOfChartDataPairing" nillable="true" type="tns:ArrayOfChartDataPairing" />
   <xs:complexType name="ChartDataPairing">
     <xs:sequence>
-      <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GenericStr" nillable="true" type="q12:ArrayOfArrayOfstring" />
+      <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GenericStr" nillable="true" type="q13:ArrayOfArrayOfstring" />
       <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
-      <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Value" nillable="true" type="q13:ArrayOfArrayOfdouble" />
+      <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Value" nillable="true" type="q14:ArrayOfArrayOfdouble" />
       <xs:element minOccurs="0" name="Xaxis" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Yaxis" nillable="true" type="xs:string" />
     </xs:sequence>
@@ -97,9 +99,9 @@
   <xs:complexType name="PerformanceStats">
     <xs:sequence>
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Headers" nillable="true" type="q14:ArrayOfstring" />
+      <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Headers" nillable="true" type="q15:ArrayOfstring" />
       <xs:element minOccurs="0" name="PerformanceStatsType" nillable="true" type="xs:string" />
-      <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StatsLog" nillable="true" type="q15:ArrayOfArrayOfstring" />
+      <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StatsLog" nillable="true" type="q16:ArrayOfArrayOfstring" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="PerformanceStats" nillable="true" type="tns:PerformanceStats" />
