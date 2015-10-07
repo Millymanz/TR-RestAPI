@@ -91,6 +91,34 @@ namespace TradeRiserAPI.Providers
             //};
             //var oAuthIdentitfffy = userManager.Create(userTT, "Rockyasante123£");
 
+            //ApplicationUser userTT = new ApplicationUser
+            //{
+            //    UserName = "demouser1@traderiser.com",
+            //    Email = "demouser1@traderiser.com",
+            //    EmailConfirmed = true,
+            //    PasswordHash = "AIpSqYyVbdnaCKYfLq0gcwLTe4Qgg8Wi8kMhSx0iNelYLtYFwtIyCdWWYG8DOMLSpolk"
+            //};
+            //var oAuthIdentitfffy = userManager.Create(userTT, "Demouser12£@");
+
+
+            //ApplicationUser userTT = new ApplicationUser
+            //{
+            //    UserName = "charles.muriu@traderiser.com",
+            //    Email = "charles.muriu@traderiser.com",
+            //    EmailConfirmed = true,
+            //    PasswordHash = "AIpSqYyVbdnaCKYfLq0gcwLTe4Qgg8Wi8kMhSx0iNelYLtYFwtIyCdWWYG8DOMLSpolk"
+            //};
+            //var oAuthIdentitfffy = userManager.Create(userTT, "Charlesm123£");
+
+
+            //ApplicationUser userTT = new ApplicationUser
+            //{
+            //    UserName = "demouser2@traderiser.com",
+            //    Email = "demouser2@traderiser.com",
+            //    EmailConfirmed = true,
+            //    PasswordHash = "AIpSqYyVbdnaCKYfLq0gcwLTe4Qgg8Wi8kMhSx0iNelYLtYFwtIyCdWWYG8DOMLSpolk"
+            //};
+            //var oAuthIdentitfffy = userManager.Create(userTT, "Demouser22£@");
 
 
         }

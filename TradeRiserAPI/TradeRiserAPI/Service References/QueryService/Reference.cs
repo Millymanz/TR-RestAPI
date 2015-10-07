@@ -417,6 +417,9 @@ namespace TradeRiserAPI.QueryService {
         private string[][][] DataResultsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DataTimeFrameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string[][] HeaderDataTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -463,6 +466,19 @@ namespace TradeRiserAPI.QueryService {
                 if ((object.ReferenceEquals(this.DataResultsField, value) != true)) {
                     this.DataResultsField = value;
                     this.RaisePropertyChanged("DataResults");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DataTimeFrame {
+            get {
+                return this.DataTimeFrameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DataTimeFrameField, value) != true)) {
+                    this.DataTimeFrameField = value;
+                    this.RaisePropertyChanged("DataTimeFrame");
                 }
             }
         }

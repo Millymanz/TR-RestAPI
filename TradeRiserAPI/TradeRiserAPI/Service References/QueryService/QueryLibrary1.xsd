@@ -47,6 +47,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="ChartReadyDataResults" nillable="true" type="tns:ArrayOfChartDataPairing" />
       <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DataResults" nillable="true" type="q9:ArrayOfArrayOfArrayOfstring" />
+      <xs:element minOccurs="0" name="DataTimeFrame" nillable="true" type="xs:string" />
       <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="HeaderDataType" nillable="true" type="q10:ArrayOfArrayOfstring" />
       <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Headers" nillable="true" type="q11:ArrayOfArrayOfstring" />
       <xs:element minOccurs="0" name="HighLightRegion" nillable="true" type="tns:ArrayOfHighlightRegion" />
