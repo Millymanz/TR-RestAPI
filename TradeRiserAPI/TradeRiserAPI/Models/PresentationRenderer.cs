@@ -124,6 +124,8 @@ namespace TradeRiserAPI.Models
                                 switch (headerResult[j])
                                 {
                                     case "ResultantSymbolID":
+                                    case "Resultant Symbol":
+
                                         {
                                             //if Forex then ConvertSymbolIntoFriendlyForm()
 
@@ -134,12 +136,15 @@ namespace TradeRiserAPI.Models
                                         break;
 
                                     case "StartDateTime":
+                                    case "Start Date Time":
                                         {
                                             resultSum.StartDateTime = item[j];
                                         }
                                         break;
 
                                     case "EndDateTime":
+                                    case "End Date Time":
+
                                         {
                                             resultSum.EndDateTime = item[j];
                                         }
@@ -153,6 +158,7 @@ namespace TradeRiserAPI.Models
                                         break;
 
                                     case "TimeFrame":
+                                    case "Time Frame":
                                         {
                                             resultSum.TimeFrame = item[j];
                                         }
