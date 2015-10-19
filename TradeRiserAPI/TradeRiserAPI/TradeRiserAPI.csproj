@@ -322,18 +322,18 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\npm.js" />
-    <None Include="Service References\QueryService\Arrays1.xsd">
+    <None Include="Service References\QueryService\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\QueryService\configuration91.svcinfo" />
     <None Include="Service References\QueryService\configuration.svcinfo" />
-    <None Include="Service References\QueryService\DataModel1.xsd">
+    <None Include="Service References\QueryService\DataModel.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\QueryService\QueryLibrary1.xsd">
+    <None Include="Service References\QueryService\QueryLibrary.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\QueryService\QueryService1.xsd">
+    <None Include="Service References\QueryService\QueryService.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\QueryService\Reference.svcmap">
@@ -362,13 +362,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <None Include="Service References\QueryService\service1.wsdl" />
-    <None Include="Service References\QueryService\service2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\QueryService\service21.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="Service References\QueryService\TradeRiserAPI.QueryService.AnswerPackage.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -382,6 +375,13 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Views\Home\Documentation.cshtml" />
+    <None Include="Service References\QueryService\service.wsdl" />
+    <None Include="Service References\QueryService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QueryService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

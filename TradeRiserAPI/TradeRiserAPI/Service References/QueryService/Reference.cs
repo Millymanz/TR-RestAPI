@@ -1155,80 +1155,41 @@ namespace TradeRiserAPI.QueryService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQueryService/GetData", ReplyAction="http://tempuri.org/IQueryService/GetDataResponse")]
         string GetData(int value);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQueryService/GetData", ReplyAction="http://tempuri.org/IQueryService/GetDataResponse")]
-        System.Threading.Tasks.Task<string> GetDataAsync(int value);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQueryService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IQueryService/GetDataUsingDataContractResponse")]
         TradeRiserAPI.QueryService.CompositeType GetDataUsingDataContract(TradeRiserAPI.QueryService.CompositeType composite);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQueryService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IQueryService/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<TradeRiserAPI.QueryService.CompositeType> GetDataUsingDataContractAsync(TradeRiserAPI.QueryService.CompositeType composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQueryService/SubmitQuery", ReplyAction="http://tempuri.org/IQueryService/SubmitQueryResponse")]
         TradeRiserAPI.QueryService.AnswerPackage SubmitQuery(string userQuerySession, string qry);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQueryService/SubmitQuery", ReplyAction="http://tempuri.org/IQueryService/SubmitQueryResponse")]
-        System.Threading.Tasks.Task<TradeRiserAPI.QueryService.AnswerPackage> SubmitQueryAsync(string userQuerySession, string qry);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQueryService/GetSymbolData", ReplyAction="http://tempuri.org/IQueryService/GetSymbolDataResponse")]
         double[][] GetSymbolData(string symbolID, string timeFrame);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQueryService/GetSymbolData", ReplyAction="http://tempuri.org/IQueryService/GetSymbolDataResponse")]
-        System.Threading.Tasks.Task<double[][]> GetSymbolDataAsync(string symbolID, string timeFrame);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQueryService/GetDataResult", ReplyAction="http://tempuri.org/IQueryService/GetDataResultResponse")]
         TradeRiserAPI.QueryService.AnswerPackage GetDataResult(string queryId, string selectingSymbol);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQueryService/GetDataResult", ReplyAction="http://tempuri.org/IQueryService/GetDataResultResponse")]
-        System.Threading.Tasks.Task<TradeRiserAPI.QueryService.AnswerPackage> GetDataResultAsync(string queryId, string selectingSymbol);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQueryService/GetQueryData", ReplyAction="http://tempuri.org/IQueryService/GetQueryDataResponse")]
         TradeRiserAPI.QueryService.SessionTransactQQ GetQueryData();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQueryService/GetQueryData", ReplyAction="http://tempuri.org/IQueryService/GetQueryDataResponse")]
-        System.Threading.Tasks.Task<TradeRiserAPI.QueryService.SessionTransactQQ> GetQueryDataAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQueryService/GetChartData", ReplyAction="http://tempuri.org/IQueryService/GetChartDataResponse")]
         double[][] GetChartData(string symbolID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQueryService/GetChartData", ReplyAction="http://tempuri.org/IQueryService/GetChartDataResponse")]
-        System.Threading.Tasks.Task<double[][]> GetChartDataAsync(string symbolID);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQueryService/GetAutoComplete", ReplyAction="http://tempuri.org/IQueryService/GetAutoCompleteResponse")]
         TradeRiserAPI.QueryService.QueryHelperDefinition[] GetAutoComplete(string input);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQueryService/GetAutoComplete", ReplyAction="http://tempuri.org/IQueryService/GetAutoCompleteResponse")]
-        System.Threading.Tasks.Task<TradeRiserAPI.QueryService.QueryHelperDefinition[]> GetAutoCompleteAsync(string input);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQueryService/GetLatestAnswers", ReplyAction="http://tempuri.org/IQueryService/GetLatestAnswersResponse")]
         TradeRiserAPI.QueryService.AnswerPackage[] GetLatestAnswers();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQueryService/GetLatestAnswers", ReplyAction="http://tempuri.org/IQueryService/GetLatestAnswersResponse")]
-        System.Threading.Tasks.Task<TradeRiserAPI.QueryService.AnswerPackage[]> GetLatestAnswersAsync();
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQueryService/GetAllCompletedPatternDefaults", ReplyAction="http://tempuri.org/IQueryService/GetAllCompletedPatternDefaultsResponse")]
         TradeRiserAPI.QueryService.AnswerPackage GetAllCompletedPatternDefaults(string exchange);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQueryService/GetAllCompletedPatternDefaults", ReplyAction="http://tempuri.org/IQueryService/GetAllCompletedPatternDefaultsResponse")]
-        System.Threading.Tasks.Task<TradeRiserAPI.QueryService.AnswerPackage> GetAllCompletedPatternDefaultsAsync(string exchange);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQueryService/GetAllEmergingPatternDefaults", ReplyAction="http://tempuri.org/IQueryService/GetAllEmergingPatternDefaultsResponse")]
         TradeRiserAPI.QueryService.AnswerPackage GetAllEmergingPatternDefaults(string exchange);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQueryService/GetAllEmergingPatternDefaults", ReplyAction="http://tempuri.org/IQueryService/GetAllEmergingPatternDefaultsResponse")]
-        System.Threading.Tasks.Task<TradeRiserAPI.QueryService.AnswerPackage> GetAllEmergingPatternDefaultsAsync(string exchange);
-        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IQueryService/RegisterClient")]
         void RegisterClient(string clientName);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IQueryService/RegisterClient")]
-        System.Threading.Tasks.Task RegisterClientAsync(string clientName);
-        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IQueryService/NotifyServer")]
         void NotifyServer(TradeRiserAPI.QueryService.EventDataType eventData);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IQueryService/NotifyServer")]
-        System.Threading.Tasks.Task NotifyServerAsync(TradeRiserAPI.QueryService.EventDataType eventData);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1270,104 +1231,52 @@ namespace TradeRiserAPI.QueryService {
             return base.Channel.GetData(value);
         }
         
-        public System.Threading.Tasks.Task<string> GetDataAsync(int value) {
-            return base.Channel.GetDataAsync(value);
-        }
-        
         public TradeRiserAPI.QueryService.CompositeType GetDataUsingDataContract(TradeRiserAPI.QueryService.CompositeType composite) {
             return base.Channel.GetDataUsingDataContract(composite);
-        }
-        
-        public System.Threading.Tasks.Task<TradeRiserAPI.QueryService.CompositeType> GetDataUsingDataContractAsync(TradeRiserAPI.QueryService.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContractAsync(composite);
         }
         
         public TradeRiserAPI.QueryService.AnswerPackage SubmitQuery(string userQuerySession, string qry) {
             return base.Channel.SubmitQuery(userQuerySession, qry);
         }
         
-        public System.Threading.Tasks.Task<TradeRiserAPI.QueryService.AnswerPackage> SubmitQueryAsync(string userQuerySession, string qry) {
-            return base.Channel.SubmitQueryAsync(userQuerySession, qry);
-        }
-        
         public double[][] GetSymbolData(string symbolID, string timeFrame) {
             return base.Channel.GetSymbolData(symbolID, timeFrame);
-        }
-        
-        public System.Threading.Tasks.Task<double[][]> GetSymbolDataAsync(string symbolID, string timeFrame) {
-            return base.Channel.GetSymbolDataAsync(symbolID, timeFrame);
         }
         
         public TradeRiserAPI.QueryService.AnswerPackage GetDataResult(string queryId, string selectingSymbol) {
             return base.Channel.GetDataResult(queryId, selectingSymbol);
         }
         
-        public System.Threading.Tasks.Task<TradeRiserAPI.QueryService.AnswerPackage> GetDataResultAsync(string queryId, string selectingSymbol) {
-            return base.Channel.GetDataResultAsync(queryId, selectingSymbol);
-        }
-        
         public TradeRiserAPI.QueryService.SessionTransactQQ GetQueryData() {
             return base.Channel.GetQueryData();
-        }
-        
-        public System.Threading.Tasks.Task<TradeRiserAPI.QueryService.SessionTransactQQ> GetQueryDataAsync() {
-            return base.Channel.GetQueryDataAsync();
         }
         
         public double[][] GetChartData(string symbolID) {
             return base.Channel.GetChartData(symbolID);
         }
         
-        public System.Threading.Tasks.Task<double[][]> GetChartDataAsync(string symbolID) {
-            return base.Channel.GetChartDataAsync(symbolID);
-        }
-        
         public TradeRiserAPI.QueryService.QueryHelperDefinition[] GetAutoComplete(string input) {
             return base.Channel.GetAutoComplete(input);
-        }
-        
-        public System.Threading.Tasks.Task<TradeRiserAPI.QueryService.QueryHelperDefinition[]> GetAutoCompleteAsync(string input) {
-            return base.Channel.GetAutoCompleteAsync(input);
         }
         
         public TradeRiserAPI.QueryService.AnswerPackage[] GetLatestAnswers() {
             return base.Channel.GetLatestAnswers();
         }
         
-        public System.Threading.Tasks.Task<TradeRiserAPI.QueryService.AnswerPackage[]> GetLatestAnswersAsync() {
-            return base.Channel.GetLatestAnswersAsync();
-        }
-        
         public TradeRiserAPI.QueryService.AnswerPackage GetAllCompletedPatternDefaults(string exchange) {
             return base.Channel.GetAllCompletedPatternDefaults(exchange);
-        }
-        
-        public System.Threading.Tasks.Task<TradeRiserAPI.QueryService.AnswerPackage> GetAllCompletedPatternDefaultsAsync(string exchange) {
-            return base.Channel.GetAllCompletedPatternDefaultsAsync(exchange);
         }
         
         public TradeRiserAPI.QueryService.AnswerPackage GetAllEmergingPatternDefaults(string exchange) {
             return base.Channel.GetAllEmergingPatternDefaults(exchange);
         }
         
-        public System.Threading.Tasks.Task<TradeRiserAPI.QueryService.AnswerPackage> GetAllEmergingPatternDefaultsAsync(string exchange) {
-            return base.Channel.GetAllEmergingPatternDefaultsAsync(exchange);
-        }
-        
         public void RegisterClient(string clientName) {
             base.Channel.RegisterClient(clientName);
         }
         
-        public System.Threading.Tasks.Task RegisterClientAsync(string clientName) {
-            return base.Channel.RegisterClientAsync(clientName);
-        }
-        
         public void NotifyServer(TradeRiserAPI.QueryService.EventDataType eventData) {
             base.Channel.NotifyServer(eventData);
-        }
-        
-        public System.Threading.Tasks.Task NotifyServerAsync(TradeRiserAPI.QueryService.EventDataType eventData) {
-            return base.Channel.NotifyServerAsync(eventData);
         }
     }
 }
