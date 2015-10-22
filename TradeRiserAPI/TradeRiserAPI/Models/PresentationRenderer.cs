@@ -21,6 +21,7 @@ namespace TradeRiserAPI.Models
         public String MoreStandardData;
         public String MoreKeyFields;
         public String QueryID;
+        public String Query;
 
         public List<String> ImageCollection;
         public List<List<String>> KeyResultField;
@@ -36,6 +37,8 @@ namespace TradeRiserAPI.Models
     {
         public List<QueryCard> Following = new List<QueryCard>();
         public List<QueryCard> HistoricQueries = new List<QueryCard>();
+        public List<QueryCard> SavedQueries = new List<QueryCard>();
+
     }
 
 
@@ -191,6 +194,10 @@ namespace TradeRiserAPI.Models
                             //cmc i is used to track the items in the query results front end
 
                             resultSum.QueryID = resultSym + "*" + currentResult.QueryID + "cmc" + i;
+                            
+                            
+                            resultSum.Query = currentResult.Query;
+
 
                             //resultSum.QueryID = currentResult.QueryID + "cmc" + i;
 

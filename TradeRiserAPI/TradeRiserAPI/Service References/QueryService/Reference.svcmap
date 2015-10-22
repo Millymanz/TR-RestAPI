@@ -18,16 +18,16 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="net.tcp://www.traderiseranalytics.com:8012/QueryService/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="net.tcp://localhost:8012/QueryService/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="41e3319d-aac0-4681-bf05-d4919e52076d" SourceId="1" SourceUrl="net.tcp://www.traderiseranalytics.com:8012/QueryService/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="535bf3a9-e2a3-4565-bfc6-e2250178cc2b" SourceId="1" SourceUrl="net.tcp://www.traderiseranalytics.com:8012/QueryService/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="2fcc04be-5879-40c2-9246-bc9f5685ab6c" SourceId="1" SourceUrl="net.tcp://www.traderiseranalytics.com:8012/QueryService/mex" />
-    <MetadataFile FileName="QueryService.xsd" MetadataType="Schema" ID="88c3bd8f-2b30-4d2b-a9de-3c147033c291" SourceId="1" SourceUrl="net.tcp://www.traderiseranalytics.com:8012/QueryService/mex" />
-    <MetadataFile FileName="QueryLibrary.xsd" MetadataType="Schema" ID="fa739326-9150-46b4-8e1d-6bebc1a7515e" SourceId="1" SourceUrl="net.tcp://www.traderiseranalytics.com:8012/QueryService/mex" />
-    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="eeffd04b-fd33-462d-ae48-877f311facad" SourceId="1" SourceUrl="net.tcp://www.traderiseranalytics.com:8012/QueryService/mex" />
-    <MetadataFile FileName="DataModel.xsd" MetadataType="Schema" ID="36069999-b6ff-4e65-8963-99274715a2ac" SourceId="1" SourceUrl="net.tcp://www.traderiseranalytics.com:8012/QueryService/mex" />
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="6948c037-0ca0-4cd1-9332-8d45cc7e9740" SourceId="1" SourceUrl="net.tcp://localhost:8012/QueryService/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="cfac5117-2532-4b85-bc6a-558572a23757" SourceId="1" SourceUrl="net.tcp://localhost:8012/QueryService/mex" />
+    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="e59aeafe-083c-48d1-85c2-d893f3781172" SourceId="1" SourceUrl="net.tcp://localhost:8012/QueryService/mex" />
+    <MetadataFile FileName="QueryService1.xsd" MetadataType="Schema" ID="ce23342d-46ef-43c5-9471-4b0b395a7b7c" SourceId="1" SourceUrl="net.tcp://localhost:8012/QueryService/mex" />
+    <MetadataFile FileName="QueryLibrary1.xsd" MetadataType="Schema" ID="d603105d-9aac-43c5-a773-15051c8034dd" SourceId="1" SourceUrl="net.tcp://localhost:8012/QueryService/mex" />
+    <MetadataFile FileName="Arrays1.xsd" MetadataType="Schema" ID="f09185e3-0e22-4bd6-97f5-29c645871287" SourceId="1" SourceUrl="net.tcp://localhost:8012/QueryService/mex" />
+    <MetadataFile FileName="DataModel1.xsd" MetadataType="Schema" ID="113c8bc5-7a32-4ed2-a88c-cfe77d452e61" SourceId="1" SourceUrl="net.tcp://localhost:8012/QueryService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

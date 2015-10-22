@@ -5,6 +5,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="PresentationTypes" nillable="true" type="tns:ArrayOfPresentationPackage" />
       <xs:element minOccurs="0" name="ProcessedResults" nillable="true" type="tns:ComputedResultTable" />
+      <xs:element minOccurs="0" name="Query" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="QueryID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="RawDataResults" nillable="true" type="tns:ArrayOfRawDataResultTable" />
       <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ResultSymbols" nillable="true" type="q1:ArrayOfArrayOfstring" />

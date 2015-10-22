@@ -228,7 +228,7 @@ namespace TradeRiserAPI.Models
                 var eventData = (QueryService.EventDataType)sender;
                 var presentRender = new PresentationRenderer(eventData.EventMessage);
 
-                presentRender.RunResultDummyData();//test
+                //presentRender.RunResultDummyData();//test
 
                
                 var pusher = new Pusher("121338", "0c52bffe086a83952d16", "112e5c6c8c427bc4788a");

@@ -213,4 +213,3 @@ E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\obj\Release\TradeRiser
 E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\System.Web.Cors.dll
 E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\System.Web.Http.Cors.dll
 E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\System.Web.Http.Cors.xml
-E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\obj\Release\TradeRiserAPI.csprojResolveAssemblyReference.cache

@@ -90,6 +90,9 @@ namespace TradeRiserAPI.QueryService {
         private TradeRiserAPI.QueryService.ComputedResultTable ProcessedResultsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string QueryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string QueryIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -133,6 +136,19 @@ namespace TradeRiserAPI.QueryService {
                 if ((object.ReferenceEquals(this.ProcessedResultsField, value) != true)) {
                     this.ProcessedResultsField = value;
                     this.RaisePropertyChanged("ProcessedResults");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Query {
+            get {
+                return this.QueryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.QueryField, value) != true)) {
+                    this.QueryField = value;
+                    this.RaisePropertyChanged("Query");
                 }
             }
         }

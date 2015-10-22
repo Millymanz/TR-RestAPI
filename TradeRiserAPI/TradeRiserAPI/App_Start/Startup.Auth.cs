@@ -82,46 +82,80 @@ namespace TradeRiserAPI
             bool userLoggedIn = false;
             var content = actionContext.Request.Content.ReadAsStringAsync().Result;
 
-            //actionContext.Response.Content.
 
-            var temp = actionContext.Request.Headers.Authorization;
-            dynamic json = Newtonsoft.Json.JsonConvert.DeserializeObject(content);
-            
-            if (json != null)
+            //actionContext.Request.Content.ReadAsStringAsync().Result = "Dennis";
+
+            var authorization = actionContext.Request.Headers.Authorization;
+
+            try
             {
-                if (json["Username"] != null)
+                dynamic json = Newtonsoft.Json.JsonConvert.DeserializeObject(content);
+
+                if (json != null)
                 {
-                    var usernameBasic = (string)json["Username"];
-                    userLoggedIn = dataModel.CheckUserLoginStatus(usernameBasic, temp.Parameter);
-
-
-                    if (userLoggedIn == false)
+                    if (json["Username"] != null)
                     {
-                        _responseReason = "Access Denied - User Currently Logged Out";
-                        return false;
-                    }
-                    //if logged out then return "Access Denied"
-                    //Access Denied - User Currently Logged Out
-                    //return false
+                        var usernameBasic = (string)json["Username"];
 
-
-                    //if user is logged in return true
-
-                    //if token has expired then run base class method
-                    // _runBaseMethod = true
-                    //set this to false
-
-                    if (dataModel.HasTokenExpired(usernameBasic, temp.Parameter))
-                    {
-                        _runBaseMethod = true;
+                        if (LoginCheckProcess(userLoggedIn, dataModel, usernameBasic, authorization.Parameter) == false)
+                        {
+                            return false;
+                        }                        
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                //failed try again
+
+                var usernameContent = content.ToLower();
+
+                if (usernameContent.Contains("username"))
+                {
+                    var indexEqualSign = usernameContent.IndexOf("=");
+                    var emailExtract = usernameContent.Substring(indexEqualSign + 1);
+                    var correctedEmail = emailExtract.Replace("%40", "@");
+
+                    if (LoginCheckProcess(userLoggedIn, dataModel, correctedEmail, authorization.Parameter) == false)
+                    {
+                        return false;
+                    }
+                }
+
+
             }
             //if token has expired and user is logged out then
             //then user must request a new token
             //return false;
 
             return base.IsAuthorized(actionContext);
+        }
+
+        private bool LoginCheckProcess(bool userLoggedIn, DataModel dataModel, string username, string authorization)
+        {
+            userLoggedIn = dataModel.CheckUserLoginStatus(username, authorization);
+
+            if (userLoggedIn == false)
+            {
+                _responseReason = "Access Denied - User Currently Logged Out";
+                return false;
+            }
+            //if logged out then return "Access Denied"
+            //Access Denied - User Currently Logged Out
+            //return false
+
+
+            //if user is logged in return true
+
+            //if token has expired then run base class method
+            // _runBaseMethod = true
+            //set this to false
+
+            if (dataModel.HasTokenExpired(username, authorization))
+            {
+                _runBaseMethod = true;
+            }
+            return true;
         }
     }
 

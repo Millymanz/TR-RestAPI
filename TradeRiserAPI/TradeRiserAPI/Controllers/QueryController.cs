@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace TradeRiserAPI.Controllers
 {
-    //[Authorize]
+
     [ValidationActionFilter]
     [RoutePrefix("api/Query")]
     public class QueryController : ApiController
@@ -185,6 +185,10 @@ namespace TradeRiserAPI.Controllers
             dataModel.SubscribeToQuery(subMan.UserName, subMan.Query);
         }
 
+        /// <summary>
+        /// Unsubscribe a user to a continously running query, for immediate result update for when a new answer is available.
+        /// </summary>
+        /// <param name="subMan">An object that contains the username and query, this is used to subscribe to a continously running query.</param>
         [Route("UnfollowQuery")]
         [HttpPost]
         public void UnfollowQuery(SubscripitionManagment subMan)
@@ -192,6 +196,31 @@ namespace TradeRiserAPI.Controllers
             DataModel dataModel = new DataModel();
             dataModel.UnsubscribeQuery(subMan.UserName, subMan.Query);
         }
+
+        /// <summary>
+        /// Save favourite queries.
+        /// </summary>
+        /// <param name="subMan">An object that contains the username and query, this is used to subscribe to a continously running query.</param>
+        [Route("SaveQuery")]
+        [HttpPost]
+        public void SaveQuery(StoredQueryManagment subMan)
+        {
+            DataModel dataModel = new DataModel();
+            dataModel.SaveUserQuery(subMan.UserName, subMan.Query);
+        }
+
+        /// <summary>
+        /// Unsave favourite queries.
+        /// </summary>
+        /// <param name="subMan">An object that contains the username and query, this is used to subscribe to a continously running query.</param>
+        [Route("UnsaveQuery")]
+        [HttpPost]
+        public void UnsaveQuery(StoredQueryManagment subMan)
+        {
+            DataModel dataModel = new DataModel();
+            dataModel.UnsaveUserQueries(subMan.UserName, subMan.Query);
+        }
+
 
         [Route("GetUserProfile")]
         [HttpPost]

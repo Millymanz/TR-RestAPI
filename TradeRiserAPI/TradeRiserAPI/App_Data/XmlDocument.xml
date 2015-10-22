@@ -539,6 +539,24 @@
             </summary>
             <param name="subMan">An object that contains the username and query, this is used to subscribe to a continously running query.</param>
         </member>
+        <member name="M:TradeRiserAPI.Controllers.QueryController.UnfollowQuery(TradeRiserAPI.Models.SubscripitionManagment)">
+            <summary>
+            Unsubscribe a user to a continously running query, for immediate result update for when a new answer is available.
+            </summary>
+            <param name="subMan">An object that contains the username and query, this is used to subscribe to a continously running query.</param>
+        </member>
+        <member name="M:TradeRiserAPI.Controllers.QueryController.SaveQuery(TradeRiserAPI.Models.StoredQueryManagment)">
+            <summary>
+            Save favourite queries.
+            </summary>
+            <param name="subMan">An object that contains the username and query, this is used to subscribe to a continously running query.</param>
+        </member>
+        <member name="M:TradeRiserAPI.Controllers.QueryController.UnsaveQuery(TradeRiserAPI.Models.StoredQueryManagment)">
+            <summary>
+            Unsave favourite queries.
+            </summary>
+            <param name="subMan">An object that contains the username and query, this is used to subscribe to a continously running query.</param>
+        </member>
         <member name="T:TradeRiserAPI.Models.JsonHelper">
             <summary>
             JSON Serialization and Deserialization Assistant Class

@@ -49,6 +49,34 @@ namespace TradeRiserAPI.Models
                 Console.WriteLine("Generic Exception:: " + ex.Message);
             }
 
+            //saved queries
+            try
+            {
+                using (SqlConnection con = new SqlConnection(settings.ToString()))
+                {
+                    SqlCommand sqlCommand = new SqlCommand("proc_ViewUserSavedQueries", con);
+                    con.Open();
+
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.Parameters.AddWithValue("@username", username);
+
+                    SqlDataReader rdr = sqlCommand.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        var queryCard = new QueryCard();
+
+                        queryCard.QueryID = rdr["QueryLogId"].ToString();
+                        queryCard.Query = rdr["Query"].ToString();
+
+                        userProfileConfig.SavedQueries.Add(queryCard);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Generic Exception:: " + ex.Message);
+            }
+
 
 
             try
@@ -190,6 +218,14 @@ namespace TradeRiserAPI.Models
             }
         }
 
+        private string PrepTextForLikeQueries(String query)
+        {
+            query += "%";
+            var final = query.Insert(0, "%");
+
+            return final;
+        }
+
         public void UnsubscribeQuery(String username, String query)
         {
             var settings = System.Configuration.ConfigurationManager.ConnectionStrings["UsermanagementConnection"];
@@ -203,7 +239,31 @@ namespace TradeRiserAPI.Models
 
                     sqlCommand.CommandType = CommandType.StoredProcedure;
                     sqlCommand.Parameters.AddWithValue("@username", username);
-                    sqlCommand.Parameters.AddWithValue("@query", query);                    
+                    sqlCommand.Parameters.AddWithValue("@query", PrepTextForLikeQueries(query));                    
+
+                    int affectedRows = sqlCommand.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Generic Exception:: " + ex.Message);
+            }
+        }
+
+        public void UnsaveUserQueries(String username, String query)
+        {
+            var settings = System.Configuration.ConfigurationManager.ConnectionStrings["UsermanagementConnection"];
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(settings.ToString()))
+                {
+                    SqlCommand sqlCommand = new SqlCommand("proc_UnsaveUserQueries", con);
+                    con.Open();
+
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.Parameters.AddWithValue("@username", username);
+                    sqlCommand.Parameters.AddWithValue("@query", PrepTextForLikeQueries(query));                    
 
                     int affectedRows = sqlCommand.ExecuteNonQuery();
                 }
@@ -226,9 +286,34 @@ namespace TradeRiserAPI.Models
                     con.Open();
 
                     sqlCommand.CommandType = CommandType.StoredProcedure;
-                    sqlCommand.Parameters.AddWithValue("@Query", query);
+                    sqlCommand.Parameters.AddWithValue("@Query", PrepTextForLikeQueries(query));
                     sqlCommand.Parameters.AddWithValue("@Username", username);
                     
+
+                    int affectedRows = sqlCommand.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Generic Exception:: " + ex.Message);
+            }
+        }
+
+        public void SaveUserQuery(String username, String query)
+        {
+            var settings = System.Configuration.ConfigurationManager.ConnectionStrings["UsermanagementConnection"];
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(settings.ToString()))
+                {
+                    SqlCommand sqlCommand = new SqlCommand("proc_SaveQuery", con);
+                    con.Open();
+
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.Parameters.AddWithValue("@Query", PrepTextForLikeQueries(query));
+                    sqlCommand.Parameters.AddWithValue("@Username", username);
+
 
                     int affectedRows = sqlCommand.ExecuteNonQuery();
                 }

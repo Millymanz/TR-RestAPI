@@ -153,6 +153,17 @@ namespace TradeRiserAPI.Models
         public string Query { get; set; }
     }
 
+    public class StoredQueryManagment
+    {
+        [Required]
+        [Display(Name = "UserName")]
+        public string UserName { get; set; }
+
+        [Required]
+        [Display(Name = "Query")]
+        public string Query { get; set; }
+    }
+
 
     public class UserNameItem
     {
