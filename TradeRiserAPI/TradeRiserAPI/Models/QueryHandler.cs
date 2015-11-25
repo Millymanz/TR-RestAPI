@@ -32,13 +32,13 @@ namespace TradeRiserAPI.Models
         {
             try
             {
-                BroadcastorCallback cb = new BroadcastorCallback();
-                cb.SetHandler(Poller.HandleBroadcast);
+                //BroadcastorCallback cb = new BroadcastorCallback();
+                //cb.SetHandler(Poller.HandleBroadcast);
 
-                System.ServiceModel.InstanceContext context =
-                    new System.ServiceModel.InstanceContext(cb);
+                //System.ServiceModel.InstanceContext context =
+                //    new System.ServiceModel.InstanceContext(cb);
 
-                using (QueryService.QueryServiceClient queryServiceProxy = new QueryService.QueryServiceClient(context))
+                using (QueryService.QueryServiceClient queryServiceProxy = new QueryService.QueryServiceClient())
                 {
                     return queryServiceProxy.GetAllCompletedPatternDefaults("Forex");
                 }
@@ -54,13 +54,13 @@ namespace TradeRiserAPI.Models
         {
             try
             {
-                BroadcastorCallback cb = new BroadcastorCallback();
-                cb.SetHandler(Poller.HandleBroadcast);
+                //BroadcastorCallback cb = new BroadcastorCallback();
+                //cb.SetHandler(Poller.HandleBroadcast);
 
-                System.ServiceModel.InstanceContext context =
-                    new System.ServiceModel.InstanceContext(cb);
+                //System.ServiceModel.InstanceContext context =
+                //    new System.ServiceModel.InstanceContext(cb);
 
-                using (QueryService.QueryServiceClient queryServiceProxy = new QueryService.QueryServiceClient(context))
+                using (QueryService.QueryServiceClient queryServiceProxy = new QueryService.QueryServiceClient())
                 {
                     return queryServiceProxy.GetAllEmergingPatternDefaults("Forex");
                 }
@@ -110,13 +110,13 @@ namespace TradeRiserAPI.Models
         {
             try
             {
-                BroadcastorCallback cb = new BroadcastorCallback();
-                cb.SetHandler(Poller.HandleBroadcast);
+                //BroadcastorCallback cb = new BroadcastorCallback();
+                //cb.SetHandler(Poller.HandleBroadcast);
 
-                System.ServiceModel.InstanceContext context =
-                    new System.ServiceModel.InstanceContext(cb);
+                //System.ServiceModel.InstanceContext context =
+                //    new System.ServiceModel.InstanceContext(cb);
 
-                using (QueryService.QueryServiceClient queryServiceProxy = new QueryService.QueryServiceClient(context))
+                using (QueryService.QueryServiceClient queryServiceProxy = new QueryService.QueryServiceClient())
                 {
                     var data = queryServiceProxy.GetSymbolData(symbolData.SymbolID, symbolData.TimeFrame);
                     return data;
@@ -148,13 +148,14 @@ namespace TradeRiserAPI.Models
 
                 QueryService.AnswerPackage answerTemp = null;
 
-                BroadcastorCallback cb = new BroadcastorCallback();
-                cb.SetHandler(Poller.HandleBroadcast);
+               // BroadcastorCallback cb = new BroadcastorCallback();
+                //// cb.SetHandler(Poller.HandleBroadcast);
 
-                System.ServiceModel.InstanceContext context =
-                    new System.ServiceModel.InstanceContext(cb);
+                //System.ServiceModel.InstanceContext context =
+                //    new System.ServiceModel.InstanceContext(cb);
 
-                using (QueryService.QueryServiceClient queryServiceProxy = new QueryService.QueryServiceClient(context))
+                using (QueryService.QueryServiceClient queryServiceProxy
+                    = new QueryService.QueryServiceClient())
                 {
                     answerTemp = queryServiceProxy.SubmitQuery(userQuerySession, query);
 
@@ -168,15 +169,44 @@ namespace TradeRiserAPI.Models
             return null;
         }  
 
+
+        //private QueryService.AnswerPackage Query(String userQuerySession, String query)
+        //{
+        //    try
+        //    {
+        //        var dataSetMgr = new DatasetManager();
+
+        //        QueryService.AnswerPackage answerTemp = null;
+
+        //        BroadcastorCallback cb = new BroadcastorCallback();
+        //       // cb.SetHandler(Poller.HandleBroadcast);
+
+        //        System.ServiceModel.InstanceContext context =
+        //            new System.ServiceModel.InstanceContext(cb);
+
+        //        using (QueryService.QueryServiceClient queryServiceProxy = new QueryService.QueryServiceClient(context))
+        //        {
+        //            answerTemp = queryServiceProxy.SubmitQuery(userQuerySession, query);
+
+        //            return answerTemp;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine("Connection Fault :: " + ex.ToString());
+        //    }
+        //    return null;
+        //}  
+
         public double[][] GetChartData(String symbolID)
         {
-            BroadcastorCallback cb = new BroadcastorCallback();
-            cb.SetHandler(Poller.HandleBroadcast);
+            //BroadcastorCallback cb = new BroadcastorCallback();
+            //cb.SetHandler(Poller.HandleBroadcast);
 
-            System.ServiceModel.InstanceContext context =
-                new System.ServiceModel.InstanceContext(cb);
+            //System.ServiceModel.InstanceContext context =
+            //    new System.ServiceModel.InstanceContext(cb);
             
-            using (QueryService.QueryServiceClient queryServiceProxy = new QueryService.QueryServiceClient(context))
+            using (QueryService.QueryServiceClient queryServiceProxy = new QueryService.QueryServiceClient())
             {
                 return queryServiceProxy.GetChartData(symbolID);
             }
@@ -184,15 +214,15 @@ namespace TradeRiserAPI.Models
 
         public QueryService.AnswerPackage GetDataResult(String queryId, String selectingSymbol)
         {
-            BroadcastorCallback cb = new BroadcastorCallback();
-            cb.SetHandler(Poller.HandleBroadcast);
+            //BroadcastorCallback cb = new BroadcastorCallback();
+            //cb.SetHandler(Poller.HandleBroadcast);
 
-            System.ServiceModel.InstanceContext context =
-                new System.ServiceModel.InstanceContext(cb);
+            //System.ServiceModel.InstanceContext context =
+            //    new System.ServiceModel.InstanceContext(cb);
 
             var pureQueryId = queryId.Split(new string[] { "cmc" }, StringSplitOptions.None).FirstOrDefault();
 
-            using (QueryService.QueryServiceClient queryServiceProxy = new QueryService.QueryServiceClient(context))
+            using (QueryService.QueryServiceClient queryServiceProxy = new QueryService.QueryServiceClient())
             {
                 return queryServiceProxy.GetDataResult(pureQueryId, selectingSymbol);
             }

@@ -1,0 +1,6 @@
+*.wsdl
+*.xsd
+*.svcmap
+*.svcinfo
+*obj/
+*bin/

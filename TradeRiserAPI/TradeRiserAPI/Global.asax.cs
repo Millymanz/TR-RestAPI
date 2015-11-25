@@ -8,6 +8,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using TradeRiserAPI.Models;
 using System.Threading;
+using log4net;
 
 namespace TradeRiserAPI
 {
@@ -21,6 +22,11 @@ namespace TradeRiserAPI
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
+            TradeRiserAPI.Logger.Setup("TradeRiserAPI.Web.config");
+
+            Logger.log.Info("Application_Start");
+
+            Logger.log.Info("Loading User Friendly Names");
             TradeUtility.Setup();
 
 

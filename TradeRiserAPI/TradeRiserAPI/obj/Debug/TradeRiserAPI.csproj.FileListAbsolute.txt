@@ -360,4 +360,8 @@ E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\System.Web.WebPage
 E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\System.Web.Optimization.xml
 E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\obj\Debug\TradeRiserAPI.dll
 E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\obj\Debug\TradeRiserAPI.pdb
+E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\AutoMapper.dll
+E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\AutoMapper.xml
+E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\log4net.dll
+E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\bin\log4net.xml
 E:\NonDeployable\Current\REST\TradeRiserAPI\TradeRiserAPI\obj\Debug\TradeRiserAPI.csprojResolveAssemblyReference.cache

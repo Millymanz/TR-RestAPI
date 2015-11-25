@@ -76,7 +76,7 @@ namespace TradeRiserAPI.Models
     }
 
 
-    public class BroadcastorCallback : QueryService.IQueryServiceCallback
+    public class BroadcastorCallback : QueryPushService.IQueryPushServiceCallback
     {
         private System.Threading.SynchronizationContext syncContext = AsyncOperationManager.SynchronizationContext;
 
@@ -86,7 +86,7 @@ namespace TradeRiserAPI.Models
             this._broadcastorCallBackHandler = handler;
         }
 
-        public void BroadcastToClient(QueryService.EventDataType eventData)
+        public void BroadcastToClient(QueryPushService.EventDataType eventData)
         {
             syncContext.Post(new System.Threading.SendOrPostCallback(OnBroadcast), eventData);
         }
@@ -98,14 +98,14 @@ namespace TradeRiserAPI.Models
     }
 
 
-
     public static class Poller
     {
         static Dictionary<String, Queue<QueryService.SessionTransactQQ>> queryDataMasterNode = new Dictionary<string, Queue<QueryService.SessionTransactQQ>>();
 
         public static Queue<QueryService.AnswerPackage> answerQueue = new Queue<QueryService.AnswerPackage>();
 
-        private static QueryService.QueryServiceClient _client;
+        //private static QueryService.QueryServiceClient _client;
+        private static QueryPushService.QueryPushServiceClient _client;
 
 
         public static void Initialise()
@@ -167,19 +167,19 @@ namespace TradeRiserAPI.Models
 
         public static List<QueryService.AnswerPackage> GetLatestAnswers()
         {
-            QueryService.AnswerPackage answerPackage = null;
+            //QueryService.AnswerPackage answerPackage = null;
 
-            BroadcastorCallback cb = new BroadcastorCallback();
-            cb.SetHandler(Poller.HandleBroadcast);
+            //BroadcastorCallback cb = new BroadcastorCallback();
+            //cb.SetHandler(Poller.HandleBroadcast);
 
-            System.ServiceModel.InstanceContext context =
-                new System.ServiceModel.InstanceContext(cb);
+            //System.ServiceModel.InstanceContext context =
+            //    new System.ServiceModel.InstanceContext(cb);
 
 
-            using (QueryService.QueryServiceClient queryServiceProxy = new QueryService.QueryServiceClient(context))
-            {
-                return queryServiceProxy.GetLatestAnswers().ToList();
-            }
+            //using (QueryService.QueryServiceClient queryServiceProxy = new QueryService.QueryServiceClient(context))
+            //{
+            //    return queryServiceProxy.GetLatestAnswers().ToList();
+            //}
             return null;
         }
 
@@ -197,21 +197,35 @@ namespace TradeRiserAPI.Models
 
         private static void RegisterClient()
         {
-            if ((_client != null))
+            try
             {
-                _client.Abort();
-                _client = null;
+                if ((_client != null))
+                {
+                    _client.Abort();
+                    _client = null;
+                }
+
+                BroadcastorCallback cb = new BroadcastorCallback();
+                cb.SetHandler(HandleBroadcast);
+
+                System.ServiceModel.InstanceContext context =
+                    new System.ServiceModel.InstanceContext(cb);
+                _client =
+                    new QueryPushService.QueryPushServiceClient(context);
+
+                //new QueryService.QueryServiceClient(context);
+
+                
+
+                Logger.log.Info("TradeRiserAnalytics - Registering For Push");
+                
+                String name = Dns.GetHostName().ToUpper();
+                _client.RegisterClient(name +"_TradeRiserAnalytics");
             }
-
-            BroadcastorCallback cb = new BroadcastorCallback();
-            cb.SetHandler(HandleBroadcast);
-
-            System.ServiceModel.InstanceContext context =
-                new System.ServiceModel.InstanceContext(cb);
-            _client =
-                new QueryService.QueryServiceClient(context);
-
-            _client.RegisterClient("TradeRiserAnalytics");
+            catch (Exception ex)
+            {
+                Logger.log.Error("Push Registeration Failed : " + ex);
+            }
         }
 
         //-----------------------------------------------------------------------------------------------//
@@ -225,8 +239,23 @@ namespace TradeRiserAPI.Models
             try
             {
                 //see if object can be set or created as AnswerPackage
-                var eventData = (QueryService.EventDataType)sender;
-                var presentRender = new PresentationRenderer(eventData.EventMessage);
+                var eventData = (QueryPushService.EventDataType)sender;
+
+                AutoMapper.Mapper.CreateMap<QueryPushService.ChartDataPairing, QueryService.ChartDataPairing>();
+                AutoMapper.Mapper.CreateMap<QueryPushService.ComputedResultTable, QueryService.ComputedResultTable>();
+                AutoMapper.Mapper.CreateMap<QueryPushService.RawDataResultTable, QueryService.RawDataResultTable>();
+                AutoMapper.Mapper.CreateMap<QueryPushService.PresentationPackage, QueryService.PresentationPackage>();
+                AutoMapper.Mapper.CreateMap<QueryPushService.HighlightRegion, QueryService.HighlightRegion>();
+
+                AutoMapper.Mapper.CreateMap<QueryPushService.AnswerPackage, QueryService.AnswerPackage>();
+
+                QueryService.AnswerPackage answerPackageConverted = AutoMapper.Mapper.Map<QueryService.AnswerPackage>(eventData.EventMessage);
+
+                //QueryService.EventDataType queryServiceItem = new QueryService.EventDataType();
+                //queryServiceItem.ClientName = eventData.ClientName;
+                //queryServiceItem.EventMessage = answerPackageConverted;
+
+                var presentRender = new PresentationRenderer(answerPackageConverted);
 
                 //presentRender.RunResultDummyData();//test
 

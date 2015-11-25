@@ -122,6 +122,8 @@ namespace TradeRiserAPI.Models
                             ResultSummary resultSum = new ResultSummary();
                             resultSum.KeyResultField = new List<List<String>>();
                             string resultSym = "";
+                            string currentMainSymbol = "";
+
                             for (int j = 0; j < headerResult.Count(); j++)
                             {
                                 switch (headerResult[j])
@@ -130,11 +132,9 @@ namespace TradeRiserAPI.Models
                                     case "Resultant Symbol":
 
                                         {
-                                            //if Forex then ConvertSymbolIntoFriendlyForm()
-
-                                            //resultSum.SymbolID = "FakeSymbol";
                                             resultSym = item[j];
-                                            resultSum.SymbolID = TradeUtility.ConvertSymbolIntoFriendlyForm(item[j]);
+                                            resultSum.SymbolID = item[j];
+                                            currentMainSymbol = TradeUtility.ConvertSymbolIntoFriendlyForm(item[j]);
                                         }
                                         break;
 
@@ -179,8 +179,9 @@ namespace TradeRiserAPI.Models
                             }
 
                             if (resultSum.Source == "Forex")
-                            {
-                               var symbolList = resultSum.SymbolID.Split('/');
+                            {                                
+                                //var symbolList = resultSum.SymbolID.Split('/');
+                               var symbolList = currentMainSymbol.Split('/');
                                resultSum.ImageCollection = new List<String>();
                                 
                                 foreach (var symItem in symbolList)
