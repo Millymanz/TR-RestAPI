@@ -258,17 +258,15 @@ namespace TradeRiserAPI.Models
                 var presentRender = new PresentationRenderer(answerPackageConverted);
 
                 //presentRender.RunResultDummyData();//test
+                if (presentRender.ResultSummaries != null)
+                {
+                    if (presentRender.ResultSummaries.Any())
+                    {
+                        var pusher = new Pusher("121338", "0c52bffe086a83952d16", "112e5c6c8c427bc4788a");
 
-               
-                var pusher = new Pusher("121338", "0c52bffe086a83952d16", "112e5c6c8c427bc4788a");
-
-                var result = pusher.Trigger(eventData.EventMessage.UserQuerySessionID, "my_event", presentRender.ResultSummaries.FirstOrDefault());
-
-
-                //Pass 
-
-
-               // System.Diagnostics.Debug.WriteLine(tempText); // 2
+                        var result = pusher.Trigger(eventData.EventMessage.UserQuerySessionID, "my_event", presentRender.ResultSummaries.FirstOrDefault());
+                    }
+                }
             }
             catch (Exception ex)
             {
