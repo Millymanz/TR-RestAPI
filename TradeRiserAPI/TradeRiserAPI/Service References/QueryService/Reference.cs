@@ -523,10 +523,16 @@ namespace TradeRiserAPI.QueryService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string[] ColumnHeadersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string[][] GenericStrField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string KeyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string[] RowHeadersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TitleField;
@@ -547,6 +553,19 @@ namespace TradeRiserAPI.QueryService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[] ColumnHeaders {
+            get {
+                return this.ColumnHeadersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ColumnHeadersField, value) != true)) {
+                    this.ColumnHeadersField = value;
+                    this.RaisePropertyChanged("ColumnHeaders");
+                }
             }
         }
         
@@ -572,6 +591,19 @@ namespace TradeRiserAPI.QueryService {
                 if ((object.ReferenceEquals(this.KeyField, value) != true)) {
                     this.KeyField = value;
                     this.RaisePropertyChanged("Key");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[] RowHeaders {
+            get {
+                return this.RowHeadersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RowHeadersField, value) != true)) {
+                    this.RowHeadersField = value;
+                    this.RaisePropertyChanged("RowHeaders");
                 }
             }
         }
