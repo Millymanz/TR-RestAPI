@@ -152,6 +152,9 @@ namespace TradeRiserAPI.Controllers
 
             if (String.IsNullOrEmpty(searchQuery) == false)
             {
+                DateTime start = DateTime.Now;
+
+
                 QueryHandler queryHandler = new QueryHandler();
 
                 var answerTransferPackage = managed ? queryHandler.SubmitQueryReduce(username, searchQuery) : 
@@ -168,6 +171,11 @@ namespace TradeRiserAPI.Controllers
                     answered = true;
                     dataModel.LogQuery(username, searchQuery, answered);
                 }
+                DateTime end = DateTime.Now;
+                var timespan = end - start;
+                System.Diagnostics.Debug.WriteLine("Deserialsing Timespan :: " 
+                    + timespan.TotalSeconds);
+
                 ////Pass 
             }
             return presentRender;
