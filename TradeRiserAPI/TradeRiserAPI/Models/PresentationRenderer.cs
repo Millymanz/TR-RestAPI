@@ -112,6 +112,9 @@ namespace TradeRiserAPI.Models
                     String[][] currentRes = currentResult.ProcessedResults.ComputedResults;
                     var headerResult = currentResult.ProcessedResults.Headers;
 
+                    var currentResT = currentResult.ProcessedResults.ComputedResults.ToDictionary(d => d, d => "")
+                        .FirstOrDefault();
+
                     //row
                     for (int i = 0; i < currentRes.Count(); i++)
                     {

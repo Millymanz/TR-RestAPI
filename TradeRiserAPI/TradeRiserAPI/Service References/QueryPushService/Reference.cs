@@ -228,6 +228,9 @@ namespace TradeRiserAPI.QueryPushService {
         private string[][] ComputedResultsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string GenericField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string[] HeaderDataTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -255,6 +258,19 @@ namespace TradeRiserAPI.QueryPushService {
                 if ((object.ReferenceEquals(this.ComputedResultsField, value) != true)) {
                     this.ComputedResultsField = value;
                     this.RaisePropertyChanged("ComputedResults");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Generic {
+            get {
+                return this.GenericField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GenericField, value) != true)) {
+                    this.GenericField = value;
+                    this.RaisePropertyChanged("Generic");
                 }
             }
         }
@@ -584,10 +600,16 @@ namespace TradeRiserAPI.QueryPushService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string[] ColumnHeadersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string[][] GenericStrField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string KeyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string[] RowHeadersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TitleField;
@@ -608,6 +630,19 @@ namespace TradeRiserAPI.QueryPushService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[] ColumnHeaders {
+            get {
+                return this.ColumnHeadersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ColumnHeadersField, value) != true)) {
+                    this.ColumnHeadersField = value;
+                    this.RaisePropertyChanged("ColumnHeaders");
+                }
             }
         }
         
@@ -633,6 +668,19 @@ namespace TradeRiserAPI.QueryPushService {
                 if ((object.ReferenceEquals(this.KeyField, value) != true)) {
                     this.KeyField = value;
                     this.RaisePropertyChanged("Key");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[] RowHeaders {
+            get {
+                return this.RowHeadersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RowHeadersField, value) != true)) {
+                    this.RowHeadersField = value;
+                    this.RaisePropertyChanged("RowHeaders");
                 }
             }
         }
@@ -940,14 +988,8 @@ namespace TradeRiserAPI.QueryPushService {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IQueryPushService/RegisterClient")]
         void RegisterClient(string clientName);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IQueryPushService/RegisterClient")]
-        System.Threading.Tasks.Task RegisterClientAsync(string clientName);
-        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IQueryPushService/NotifyServer")]
         void NotifyServer(TradeRiserAPI.QueryPushService.EventDataType eventData);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IQueryPushService/NotifyServer")]
-        System.Threading.Tasks.Task NotifyServerAsync(TradeRiserAPI.QueryPushService.EventDataType eventData);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -989,16 +1031,8 @@ namespace TradeRiserAPI.QueryPushService {
             base.Channel.RegisterClient(clientName);
         }
         
-        public System.Threading.Tasks.Task RegisterClientAsync(string clientName) {
-            return base.Channel.RegisterClientAsync(clientName);
-        }
-        
         public void NotifyServer(TradeRiserAPI.QueryPushService.EventDataType eventData) {
             base.Channel.NotifyServer(eventData);
-        }
-        
-        public System.Threading.Tasks.Task NotifyServerAsync(TradeRiserAPI.QueryPushService.EventDataType eventData) {
-            return base.Channel.NotifyServerAsync(eventData);
         }
     }
 }

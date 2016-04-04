@@ -167,6 +167,9 @@ namespace TradeRiserAPI.QueryService {
         private string[][] ComputedResultsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string GenericField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string[] HeaderDataTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -194,6 +197,19 @@ namespace TradeRiserAPI.QueryService {
                 if ((object.ReferenceEquals(this.ComputedResultsField, value) != true)) {
                     this.ComputedResultsField = value;
                     this.RaisePropertyChanged("ComputedResults");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Generic {
+            get {
+                return this.GenericField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GenericField, value) != true)) {
+                    this.GenericField = value;
+                    this.RaisePropertyChanged("Generic");
                 }
             }
         }
