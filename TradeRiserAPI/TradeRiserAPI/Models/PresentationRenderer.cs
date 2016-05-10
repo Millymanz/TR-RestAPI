@@ -183,14 +183,19 @@ namespace TradeRiserAPI.Models
 
                             if (resultSum.Source == "Forex")
                             {                                
-                                //var symbolList = resultSum.SymbolID.Split('/');
-                               var symbolList = currentMainSymbol.Split('/');
-                               resultSum.ImageCollection = new List<String>();
-                                
-                                foreach (var symItem in symbolList)
+                                if (currentMainSymbol != null)
                                 {
-                                    var path = "../../Images/flagcurrencies/" + symItem.ToLower() + ".png";
-                                    resultSum.ImageCollection.Add(path);
+                                    if (currentMainSymbol.IndexOf('/') > -1)
+                                    {
+                                        var symbolList = currentMainSymbol.Split('/');
+                                        resultSum.ImageCollection = new List<String>();
+
+                                        foreach (var symItem in symbolList)
+                                        {
+                                            var path = "../../Images/flagcurrencies/" + symItem.ToLower() + ".png";
+                                            resultSum.ImageCollection.Add(path);
+                                        }
+                                    }
                                 }
                             }
                             //resultSum.QueryID = currentResult.QueryID;

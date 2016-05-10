@@ -609,6 +609,9 @@ namespace TradeRiserAPI.QueryPushService {
         private string KeyField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NumericTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string[] RowHeadersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -668,6 +671,19 @@ namespace TradeRiserAPI.QueryPushService {
                 if ((object.ReferenceEquals(this.KeyField, value) != true)) {
                     this.KeyField = value;
                     this.RaisePropertyChanged("Key");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NumericType {
+            get {
+                return this.NumericTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NumericTypeField, value) != true)) {
+                    this.NumericTypeField = value;
+                    this.RaisePropertyChanged("NumericType");
                 }
             }
         }
