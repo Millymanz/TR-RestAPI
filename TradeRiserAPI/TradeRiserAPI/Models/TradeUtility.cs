@@ -13,6 +13,7 @@ namespace TradeRiserAPI.Models
     public static class TradeUtility
     {
         private static Dictionary<String, String> _ForexSymbolLookUp = new Dictionary<String, String>();
+        public static Dictionary<string, string> CountryLookupEconomic = new Dictionary<string, string>();
 
         static TradeUtility()
         {
@@ -32,6 +33,22 @@ namespace TradeRiserAPI.Models
                         var symbolArray = line.Split('/');
                         var key = symbolArray[0] + symbolArray[1];
                         _ForexSymbolLookUp.Add(key, line);
+                    }
+                }
+            }
+
+            path = System.Configuration.ConfigurationManager.AppSettings["CountryList"];
+            using (StreamReader sr = new StreamReader(path))
+            {
+                string line;
+
+                while ((line = sr.ReadLine()) != null)
+                {
+                    if (String.IsNullOrEmpty(line) == false)
+                    {
+                        var symbolArray = line.Split('/');
+
+                        CountryLookupEconomic.Add(symbolArray[0], symbolArray[1]);
                     }
                 }
             }

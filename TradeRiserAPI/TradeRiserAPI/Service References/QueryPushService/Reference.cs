@@ -615,6 +615,9 @@ namespace TradeRiserAPI.QueryPushService {
         private string[] RowHeadersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string[] SourcesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TitleField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -697,6 +700,19 @@ namespace TradeRiserAPI.QueryPushService {
                 if ((object.ReferenceEquals(this.RowHeadersField, value) != true)) {
                     this.RowHeadersField = value;
                     this.RaisePropertyChanged("RowHeaders");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[] Sources {
+            get {
+                return this.SourcesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SourcesField, value) != true)) {
+                    this.SourcesField = value;
+                    this.RaisePropertyChanged("Sources");
                 }
             }
         }

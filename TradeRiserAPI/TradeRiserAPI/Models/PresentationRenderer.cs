@@ -119,7 +119,7 @@ namespace TradeRiserAPI.Models
                     for (int i = 0; i < currentRes.Count(); i++)
                     {
                         if (currentRes[i] != null)
-                        {         
+                        {
                             var item = currentRes[i];
 
                             ResultSummary resultSum = new ResultSummary();
@@ -133,11 +133,12 @@ namespace TradeRiserAPI.Models
                                 {
                                     case "ResultantSymbolID":
                                     case "Resultant Symbol":
-
                                         {
                                             resultSym = item[j];
                                             resultSum.SymbolID = item[j];
                                             currentMainSymbol = TradeUtility.ConvertSymbolIntoFriendlyForm(item[j]);
+
+                                            if (currentMainSymbol == null) currentMainSymbol = resultSum.SymbolID;
                                         }
                                         break;
 
@@ -150,7 +151,6 @@ namespace TradeRiserAPI.Models
 
                                     case "EndDateTime":
                                     case "End Date Time":
-
                                         {
                                             resultSum.EndDateTime = item[j];
                                         }
@@ -182,7 +182,7 @@ namespace TradeRiserAPI.Models
                             }
 
                             if (resultSum.Source == "Forex")
-                            {                                
+                            {
                                 if (currentMainSymbol != null)
                                 {
                                     if (currentMainSymbol.IndexOf('/') > -1)
@@ -198,13 +198,26 @@ namespace TradeRiserAPI.Models
                                     }
                                 }
                             }
+                            else if (resultSum.Source == "Economic")
+                            {
+                                resultSum.ImageCollection = new List<String>();
+                                if (currentMainSymbol != null)
+                                {
+                                    string symItem = "";
+                                    if (TradeUtility.CountryLookupEconomic.TryGetValue(currentMainSymbol.ToLower(), out symItem))
+                                    {
+                                        var path = "../../Images/flagcurrencies/" + symItem.ToLower() + ".png";
+                                        resultSum.ImageCollection.Add(path);
+                                    }
+                                }
+                            }
                             //resultSum.QueryID = currentResult.QueryID;
 
                             //cmc i is used to track the items in the query results front end
 
                             resultSum.QueryID = resultSym + "*" + currentResult.QueryID + "cmc" + i;
-                            
-                            
+
+
                             resultSum.Query = currentResult.Query;
 
 
@@ -219,7 +232,7 @@ namespace TradeRiserAPI.Models
             {
                 ex.ToString();
             }
-            
+
         }
 
         public void GenerateDummyUserProfile()
