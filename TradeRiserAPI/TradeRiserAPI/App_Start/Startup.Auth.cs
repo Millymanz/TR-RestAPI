@@ -49,6 +49,18 @@ namespace TradeRiserAPI
     {
         private string _responseReason = "";
         private bool _runBaseMethod = false;
+
+        private List<string> _apiKeysAllowed = new List<string>();
+
+        public ValidationActionFilter()
+        {
+            var apiKeys = System.Configuration.ConfigurationManager.AppSettings["APISecret"].ToString().Split(':');
+            if (apiKeys != null)
+            {
+                _apiKeysAllowed = apiKeys.ToList();
+            }
+        }
+
         public override void OnAuthorization(HttpActionContext actionContext)
         {
 
@@ -96,8 +108,12 @@ namespace TradeRiserAPI
                     if (json["Username"] != null)
                     {
                         var usernameBasic = (string)json["Username"];
+                        var apiKeySent = (string)json["APIKEY"];
 
-                        if (LoginCheckProcess(userLoggedIn, dataModel, usernameBasic, authorization.Parameter) == false)
+                        //chnage this feature to check for API Key
+                        //if (LoginCheckProcess(userLoggedIn, dataModel, usernameBasic, authorization.Parameter) == false)
+                        
+                        if (_apiKeysAllowed.Any(m => m == apiKeySent) == false)
                         {
                             return false;
                         }                        
@@ -128,7 +144,8 @@ namespace TradeRiserAPI
             //then user must request a new token
             //return false;
 
-            return base.IsAuthorized(actionContext);
+            //return base.IsAuthorized(actionContext);
+            return true;
         }
 
         private bool LoginCheckProcess(bool userLoggedIn, DataModel dataModel, string username, string authorization)
@@ -199,7 +216,11 @@ namespace TradeRiserAPI
 
 
             // Enable the application to use bearer tokens to authenticate users
-            app.UseOAuthBearerTokens(OAuthOptions);
+            
+            
+            //disabling the token issue feature
+            //app.UseOAuthBearerTokens(OAuthOptions);
+            
 
             // Uncomment the following lines to enable logging in with third party login providers
             //app.UseMicrosoftAccountAuthentication(

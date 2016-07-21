@@ -134,11 +134,14 @@ namespace TradeRiserAPI.Models
                                     case "ResultantSymbolID":
                                     case "Resultant Symbol":
                                         {
-                                            resultSym = item[j];
-                                            resultSum.SymbolID = item[j];
-                                            currentMainSymbol = TradeUtility.ConvertSymbolIntoFriendlyForm(item[j]);
+                                            if (string.IsNullOrEmpty(item[j]) == false)
+                                            {
+                                                resultSym = item[j];
+                                                resultSum.SymbolID = item[j];
+                                                currentMainSymbol = TradeUtility.ConvertSymbolIntoFriendlyForm(item[j]);
 
-                                            if (currentMainSymbol == null) currentMainSymbol = resultSum.SymbolID;
+                                                if (currentMainSymbol == null) currentMainSymbol = resultSum.SymbolID;
+                                            }
                                         }
                                         break;
 
@@ -215,10 +218,10 @@ namespace TradeRiserAPI.Models
 
                             //cmc i is used to track the items in the query results front end
 
-                            resultSum.QueryID = resultSym + "*" + currentResult.QueryID + "cmc" + i;
+                            resultSum.QueryID = HandleCharacters(resultSym) + "*" + currentResult.QueryID + "cmc" + i;
 
 
-                            resultSum.Query = currentResult.Query;
+                            resultSum.Query = HandleCharacters(currentResult.Query);
 
 
                             //resultSum.QueryID = currentResult.QueryID + "cmc" + i;
@@ -232,7 +235,12 @@ namespace TradeRiserAPI.Models
             {
                 ex.ToString();
             }
+        }
 
+        private string HandleCharacters(string convert)
+        {
+           convert = convert.Replace('&', 'n');
+           return convert;
         }
 
         public void GenerateDummyUserProfile()

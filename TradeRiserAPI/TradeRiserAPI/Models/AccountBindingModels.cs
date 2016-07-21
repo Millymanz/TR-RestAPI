@@ -91,6 +91,10 @@ namespace TradeRiserAPI.Models
         [Required]
         [Display(Name = "Query")]
         public string Query { get; set; }
+
+        [Required]
+        [Display(Name = "APIKEY")]
+        public string APIKEY { get; set; }
     }
 
     public class UserInfo
