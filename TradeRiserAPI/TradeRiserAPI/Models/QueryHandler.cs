@@ -105,6 +105,39 @@ namespace TradeRiserAPI.Models
         //    }
         //    return null;
         //}
+
+        public bool GetBackEndBasicServiceStatus()
+        {
+            try
+            {
+                using (QueryService.QueryServiceClient queryServiceProxy = new QueryService.QueryServiceClient())
+                {
+                    return queryServiceProxy.GetBasicServiceStatus();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Connection Fault :: " + ex.ToString());
+            }
+            return false;
+        }
+
+        public string GetBackEndFullServiceStatus()
+        {
+            try
+            {
+                using (QueryService.QueryServiceClient queryServiceProxy = new QueryService.QueryServiceClient())
+                {
+                    return queryServiceProxy.GetFullServiceStatus();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Connection Fault :: " + ex.ToString());
+            }
+            return "";
+        }
+
         
         public double[][] GetSymbolData(SymbolData symbolData)
         {

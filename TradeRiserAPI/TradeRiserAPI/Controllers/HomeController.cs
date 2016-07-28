@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TradeRiserAPI.Models;
 
 namespace TradeRiserAPI.Controllers
 {
@@ -20,6 +21,24 @@ namespace TradeRiserAPI.Controllers
             ViewBag.Title = "Documentation";
 
             return View();
+        }
+
+        public ActionResult ServiceStatus()
+        {
+            ViewBag.Title = "Service Status";
+
+            var serviceStatusModel = new ServiceStatusModel();
+
+            var queryHandler = new QueryHandler();
+            if (queryHandler.GetBackEndBasicServiceStatus())
+            {
+                serviceStatusModel.ServiceStatus = "OK";
+            }
+            else
+            {
+                serviceStatusModel.ServiceStatus = "FAILED";
+            }
+            return View(serviceStatusModel);
         }
     }
 }

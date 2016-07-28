@@ -412,6 +412,7 @@
     <Content Include="Service References\QueryService\TradeRiserAPI.QueryService.SessionTransactQQ.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Views\Home\ServiceStatus.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

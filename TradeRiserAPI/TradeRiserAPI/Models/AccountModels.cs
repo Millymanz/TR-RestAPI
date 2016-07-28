@@ -75,6 +75,14 @@ namespace TradeRiserAPI.Models
     //    public bool RememberMe { get; set; }
     //}
 
+    public class ServiceStatusModel
+    {
+        [Display(Name = "Service Status")]
+        public string ServiceStatus { get; set; }
+
+        [Display(Name = "Log")]
+        public string Log { get; set; }
+    }
 
     public class FeedbackModel
     {

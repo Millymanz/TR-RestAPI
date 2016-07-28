@@ -1185,6 +1185,18 @@ namespace TradeRiserAPI.QueryService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQueryService/GetAllEmergingPatternDefaults", ReplyAction="http://tempuri.org/IQueryService/GetAllEmergingPatternDefaultsResponse")]
         System.Threading.Tasks.Task<TradeRiserAPI.QueryService.AnswerPackage> GetAllEmergingPatternDefaultsAsync(string exchange);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQueryService/GetBasicServiceStatus", ReplyAction="http://tempuri.org/IQueryService/GetBasicServiceStatusResponse")]
+        bool GetBasicServiceStatus();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQueryService/GetBasicServiceStatus", ReplyAction="http://tempuri.org/IQueryService/GetBasicServiceStatusResponse")]
+        System.Threading.Tasks.Task<bool> GetBasicServiceStatusAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQueryService/GetFullServiceStatus", ReplyAction="http://tempuri.org/IQueryService/GetFullServiceStatusResponse")]
+        string GetFullServiceStatus();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQueryService/GetFullServiceStatus", ReplyAction="http://tempuri.org/IQueryService/GetFullServiceStatusResponse")]
+        System.Threading.Tasks.Task<string> GetFullServiceStatusAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1292,6 +1304,22 @@ namespace TradeRiserAPI.QueryService {
         
         public System.Threading.Tasks.Task<TradeRiserAPI.QueryService.AnswerPackage> GetAllEmergingPatternDefaultsAsync(string exchange) {
             return base.Channel.GetAllEmergingPatternDefaultsAsync(exchange);
+        }
+        
+        public bool GetBasicServiceStatus() {
+            return base.Channel.GetBasicServiceStatus();
+        }
+        
+        public System.Threading.Tasks.Task<bool> GetBasicServiceStatusAsync() {
+            return base.Channel.GetBasicServiceStatusAsync();
+        }
+        
+        public string GetFullServiceStatus() {
+            return base.Channel.GetFullServiceStatus();
+        }
+        
+        public System.Threading.Tasks.Task<string> GetFullServiceStatusAsync() {
+            return base.Channel.GetFullServiceStatusAsync();
         }
     }
 }
